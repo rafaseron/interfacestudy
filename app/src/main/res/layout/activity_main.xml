@@ -45,6 +45,10 @@
         android:layout_height="wrap_content"
         android:text="@string/button_call"
         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="só para dar commit - me apague em breve por favor"/>
 
     </LinearLayout>
 
