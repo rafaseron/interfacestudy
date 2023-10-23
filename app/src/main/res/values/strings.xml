@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">InterfaceStudy</string>
+    <string name="app_name">Estudo de Interface</string>
+    <string name="button_call"> Ligar </string>
+    <string name="text_numero"> Escreva um número de telefone </string>
 </resources>
