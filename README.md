@@ -1,4 +1,10 @@
 Este repositório é para estudarmos conceitos de interface no Android Studio.
+Os tipos de Layouts estudandos estão separados por branches, para melhor visualização.
+A branch main é o LinearLayout, por ter sido o primeiro layout a ter sido estudado.
+Para te guiar, é só ir trocando as branchs conforme imagem abaixo:
+![image](https://github.com/rafaseron/interfacestudy/assets/63885470/f6e4a9d2-e6a1-4c4e-a078-6e523ff3d067)
+
+
 Será estudado, na prática, conteúdos como:
 - textview, button e imageview
 - view groups
