@@ -17,4 +17,8 @@ Brincando um pouquinho com LinearLayout, na prática. Trabalhamos com recursos d
 Agora utilizando RelativeLayout, nomeamos os componentes com IDs para conseguir gerar um layout de forma relativa. Os nomes dos IDs foram escritos seguindo boas práticas de programação, com nomes descritivos do tipo de componente e o nome dele em questão
 ![Captura de tela 2023-10-23 225715](https://github.com/rafaseron/interfacestudy/assets/63885470/9c80a76d-b052-44af-8b65-6788b2634c71)
 
+Por fim, utilizamos o ConstraintLayout, que nos oferece melhores opções para posicionamento das Views. Seu modo textual e de design, utilizamos juntamente, conseguem nos dar maior precisão da localização do componente no lugar certo, onde queremos.
+![image](https://github.com/rafaseron/interfacestudy/assets/63885470/5d5514e3-c0fe-4bba-bd52-c987d092dc14)
+
+
 
