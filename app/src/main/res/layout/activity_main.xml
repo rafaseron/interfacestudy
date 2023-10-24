@@ -12,7 +12,7 @@
         android:id="@+id/txtAppName"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:text="@string/app_name"
+        android:text="@string/app_name"/>
 
     <EditText
         android:id="@+id/edtNumero"
@@ -32,6 +32,6 @@
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:text="@string/button_call"
-        android:layout_below="@id/spnDDI"
+        android:layout_below="@id/spnDDI"/>
 
 </RelativeLayout>
