@@ -2,4 +2,11 @@
     <string name="app_name">Estudo de Interface</string>
     <string name="button_call"> Ligar </string>
     <string name="text_numero"> Escreva um número de telefone </string>
+    <string name="txt_eletric"> Carro Elétrico </string>
+    <string name="txt_model"> Modelos </string>
+    <string name="txt_favorits"> Favoritos </string>
+    <string name="txt_price"> Preço </string>
+    <string name="txt_battery"> Bateria </string>
+    <string name="txt_power"> Potência </string>
+    <string name="txt_charge"> Recarga </string>
 </resources>

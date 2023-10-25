@@ -1,1 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="16dp"
+    android:paddingTop="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <TextView
+        android:id="@+id/txtEletricCar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_eletric"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        />
+
+    <TextView
+        android:id="@+id/txtModels"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_model"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@+id/txtEletricCar"
+        android:layout_marginTop="30dp"
+        android:paddingLeft="30dp"
+        />
+
+    <TextView
+        android:id="@+id/txtFavorits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_favorits"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toRightOf="@+id/txtModels"
+        app:layout_constraintTop_toTopOf="@+id/txtModels"
+        android:layout_marginLeft="60dp" />
+
+    <ImageView
+        android:id="@+id/model_y"
+        android:layout_width="300dp"
+        android:layout_height="120dp"
+        android:src="@drawable/model_y"
+        app:layout_constraintTop_toBottomOf="@+id/txtModels"
+        app:layout_constraintLeft_toLeftOf="@+id/txtModels"
+        android:paddingLeft="30dp"
+        />
+
+    <TextView
+        android:id="@+id/txtPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_price"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/model_y"
+        app:layout_constraintLeft_toLeftOf="@+id/model_y"
+        />
+
+    <TextView
+        android:id="@+id/txtNumberPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="R$ 120.000,00"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toRightOf="@id/txtPrice"
+        app:layout_constraintTop_toTopOf="@+id/txtPrice"
+        android:layout_marginLeft="20dp"
+        />
+
+    <TextView
+        android:id="@+id/txtBattery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_battery"
+        app:layout_constraintTop_toBottomOf="@+id/txtPrice"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:id="@+id/txtNumberBattery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/txtBattery"
+        android:text="93,4kWh"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toRightOf="@+id/txtBattery"
+        android:layout_marginLeft="20dp"
+        />
+
+    <TextView
+        android:id="@+id/txtPower"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/txtBattery"
+        android:textSize="20sp"
+        android:text="@string/txt_power"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:id="@+id/txtNumberPower"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="646cv"
+        app:layout_constraintTop_toTopOf="@+id/txtPower"
+        app:layout_constraintLeft_toRightOf="@+id/txtPower"
+        android:layout_marginLeft="20dp"
+        />
+
+    <TextView
+        android:id="@+id/txtCharge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/txtPower"
+        android:text="@string/txt_charge"
+        />
+
+    <TextView
+        android:id="@+id/txtNumberCharge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toRightOf="@id/txtCharge"
+        app:layout_constraintTop_toTopOf="@id/txtCharge"
+        android:text="23 min"
+        android:layout_marginLeft="20dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

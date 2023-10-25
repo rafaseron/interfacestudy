@@ -3,4 +3,11 @@
     <string name="app_name">Interface Study</string>
     <string name="button_call"> Call </string>
     <string name="text_numero"> Type a phone number </string>
+    <string name="txt_eletric"> Eletric Car </string>
+    <string name="txt_model"> Models </string>
+    <string name="txt_favorits"> Favorites </string>
+    <string name="txt_price"> Price </string>
+    <string name="txt_battery"> Battery </string>
+    <string name="txt_power"> Power </string>
+    <string name="txt_charge"> Charge </string>
 </resources>
