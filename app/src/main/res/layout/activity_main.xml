@@ -198,13 +198,15 @@
         >
 
         <RadioButton
+            android:id="@+id/rbPizza"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Pizza"/>
         <RadioButton
+            android:id="@+id/rbBurger"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/rb_Hamburger"/>
+            android:text="@string/rb_Burger"/>
 
 
 </RadioGroup>

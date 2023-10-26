@@ -13,5 +13,5 @@
     <string name="edt_khwPrice"> Preço em kWh </string>
     <string name="edt_kmPercorrido"> KM Percorrido </string>
     <string name="btn_calcular"> Calcular </string>
-    <string name="rb_Hamburger"> Hamburguer </string>
+    <string name="rb_Burger"> Hamburguer </string>
 </resources>
