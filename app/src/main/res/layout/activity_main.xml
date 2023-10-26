@@ -172,6 +172,7 @@
         />
 
     <Button
+        android:id="@+id/btnCalculate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_calcular"
@@ -180,6 +181,33 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="10dp"
         />
+    <TextView
+        android:id="@+id/txtFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selecione sua comida favorita:"
+        app:layout_constraintTop_toBottomOf="@+id/btnCalculate"
+        android:layout_marginTop="4dp"
+        />
+    <RadioGroup
+        android:id="@+id/rgFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/txtFood"
+        >
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pizza"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rb_Hamburger"/>
+
+
+</RadioGroup>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
