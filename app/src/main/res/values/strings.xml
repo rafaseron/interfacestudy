@@ -14,4 +14,12 @@
     <string name="edt_kmPercorrido"> KM Percorrido </string>
     <string name="btn_calcular"> Calcular </string>
     <string name="rb_Burger"> Hamburguer </string>
+    <string name="cb_compromisso1"> Compromisso 1 </string>
+    <string name="cb_compromisso2"> Compromisso 2 </string>
+    <string-array name="spnCidades">
+        <item> São Carlos </item>
+        <item> Dourados </item>
+        <item> Araraquara </item>
+    </string-array>
+
 </resources>

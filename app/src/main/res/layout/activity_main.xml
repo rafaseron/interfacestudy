@@ -208,8 +208,37 @@
             android:layout_height="wrap_content"
             android:text="@string/rb_Burger"/>
 
+    </RadioGroup>
 
-</RadioGroup>
+    <CheckBox
+        android:id="@+id/cb_Compromisso1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/rgFood"
+        android:text="@string/cb_compromisso1"/>
+    <CheckBox
+        android:id="@+id/cb_Compromisso2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/cb_Compromisso1"
+        android:text="@string/cb_compromisso2"/>
+
+    <Switch
+        android:id="@+id/swLampada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/cb_Compromisso2"
+        android:text="Ligar Lampada"
+        />
+
+    <Spinner
+        android:id="@+id/spnCidades"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/swLampada"
+        android:entries="@array/spnCidades"
+        android:layout_marginTop="5dp"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

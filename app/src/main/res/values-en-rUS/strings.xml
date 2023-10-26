@@ -15,4 +15,6 @@
     <string name="edt_kmPercorrido"> KM Traveled </string>
     <string name="btn_calcular"> Calculate </string>
     <string name="rb_Burger"> Burger </string>
+    <string name="cb_compromisso1"> Commitment 1 </string>
+    <string name="cb_compromisso2"> Commitment 2 </string>
 </resources>
