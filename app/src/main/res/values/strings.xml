@@ -9,4 +9,8 @@
     <string name="txt_battery"> Bateria </string>
     <string name="txt_power"> Potência </string>
     <string name="txt_charge"> Recarga </string>
+    <string name="edt_phone"> Seu número de telefone </string>
+    <string name="edt_khwPrice"> Preço em kWh </string>
+    <string name="edt_kmPercorrido"> KM Percorrido </string>
+    <string name="btn_calcular"> Calcular </string>
 </resources>

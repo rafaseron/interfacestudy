@@ -16,6 +16,8 @@
         android:text="@string/txt_eletric"
         android:textStyle="bold"
         android:textSize="30sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         />
 
     <TextView
@@ -133,15 +135,51 @@
         android:layout_marginLeft="20dp"
         />
 
-    <
+
+    <EditText
+        android:id="@+id/edtKHWPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="@string/edt_khwPrice"
+        android:maxLength="10"
+        app:layout_constraintTop_toBottomOf="@+id/txtNumberCharge"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:maxLines="1"/>
+
+    <EditText
+        android:id="@+id/edtKMPercorrido"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/edtKHWPrice"
+        android:hint="@string/edt_kmPercorrido"
+        android:inputType="number"
+        android:maxLength="7"
+        android:maxLines="1"
+        />
 
     <EditText
         android:id="@+id/edtPhone"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:hint="@string/edt_phone"
+        android:maxLength="11"
+        android:maxLines="1"
+        android:visibility="gone"
         android:inputType="phone"
         app:layout_constraintTop_toBottomOf="@id/txtNumberCharge"
         />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_calcular"
+        app:layout_constraintTop_toBottomOf="@+id/edtKMPercorrido"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,4 +10,8 @@
     <string name="txt_battery"> Battery </string>
     <string name="txt_power"> Power </string>
     <string name="txt_charge"> Charge </string>
+    <string name="edt_phone"> Your phone number </string>
+    <string name="edt_khwPrice"> Price in kWh </string>
+    <string name="edt_kmPercorrido"> KM Traveled </string>
+    <string name="btn_calcular"> Calculate </string>
 </resources>
