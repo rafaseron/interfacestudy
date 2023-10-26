@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -130,6 +131,17 @@
         app:layout_constraintTop_toTopOf="@id/txtCharge"
         android:text="23 min"
         android:layout_marginLeft="20dp"
+        />
+
+    <
+
+    <EditText
+        android:id="@+id/edtPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="phone"
+        app:layout_constraintTop_toBottomOf="@id/txtNumberCharge"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
