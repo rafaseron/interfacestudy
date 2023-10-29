@@ -140,7 +140,7 @@
         android:id="@+id/edtKHWPrice"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:hint="@string/edt_khwPrice"
         android:maxLength="10"
         app:layout_constraintTop_toBottomOf="@+id/txtNumberCharge"
@@ -154,7 +154,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/edtKHWPrice"
         android:hint="@string/edt_kmPercorrido"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:maxLength="7"
         android:maxLines="1"
         />
