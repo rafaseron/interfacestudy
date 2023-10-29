@@ -43,7 +43,8 @@ class MainActivity : AppCompatActivity() {
         //agora vamos começar a usar Listeners para monitorar eventos de clicks
         fun setupListeners(){
             btnCalculate.setOnClickListener{
-                Log.d("BOTAO CALCULATE","texto capturado -> ${edtKHWPrice.text.toString()}")
+                Log.d("BOTAO CALCULATE","texto capturado (Preço) -> ${edtKHWPrice.text.toString()}")
+                Log.d("BOTAO CALCULATE","texto capturado (KM Percorrido)-> ${edtKMPercorrido.text.toString()}")
         }
             //Treino prático das outras Views
             when (rgFood.checkedRadioButtonId){
