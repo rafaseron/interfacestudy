@@ -44,24 +44,22 @@ class MainActivity : AppCompatActivity() {
         fun setupListeners(){
             btnCalculate.setOnClickListener{
                 Log.d("BOTAO CALCULATE","texto capturado -> ${edtKHWPrice.text.toString()}")
-
-                //Treino prático das outras Views
-                when (rgFood.checkedRadioButtonId){
-                    R.id.rbPizza -> Log.d("RADIOGROUP","Pizza")
-                    R.id.rbBurger -> Log.d("RADIOGROUP","Hamburguer")
-                }
-                if (cb_Compromisso1.isChecked){
-                    Log.d("CHECKBOX1","Compromisso 1")
-            }
-                if (cb_Compromisso2.isChecked){
-                    Log.d("CHECKBOX2","Compromisso 2")
-                }
-                if (swLampada.isChecked){
-                    Log.d("SWITCH","Lampada ligada")
-                }
-
         }
-        setupListeners()
+            //Treino prático das outras Views
+            when (rgFood.checkedRadioButtonId){
+                R.id.rbPizza -> Log.d("RADIOGROUP","Pizza")
+                R.id.rbBurger -> Log.d("RADIOGROUP","Hamburguer")
+            }
+            if (cb_Compromisso1.isChecked){
+                Log.d("CHECKBOX1","Compromisso 1")
+            }
+            if (cb_Compromisso2.isChecked){
+                Log.d("CHECKBOX2","Compromisso 2")
+            }
+            if (swLampada.isChecked){
+                Log.d("SWITCH","Lampada ligada")
+            }
     }
+        setupListeners()
 }
 }
