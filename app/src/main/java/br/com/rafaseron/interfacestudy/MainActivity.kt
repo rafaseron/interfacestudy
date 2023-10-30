@@ -47,10 +47,14 @@ class MainActivity : AppCompatActivity() {
                 Log.d("BOTAO CALCULATE","texto capturado (KM Percorrido)-> ${edtKMPercorrido.text.toString()}")
         }
             //Treino prático das outras Views
-            when (rgFood.checkedRadioButtonId){
-                R.id.rbPizza -> Log.d("RADIOGROUP","Pizza")
-                R.id.rbBurger -> Log.d("RADIOGROUP","Hamburguer")
+            rgFood.setOnCheckedChangeListener(){
+                    group, checkedId ->
+                when (checkedId){
+                    R.id.rbPizza -> {Log.d("RADIOGROUP FOOD", "Pizza")}
+                    R.id.rbBurger -> {Log.d("RADIOGROUP FOOD", "Burger")}
+                }
             }
+
             if (cb_Compromisso1.isChecked){
                 Log.d("CHECKBOX1","Compromisso 1")
             }
