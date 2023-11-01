@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity() {
                 Log.d("BOTAO CALCULATE","texto capturado (KM Percorrido)-> ${edtKMPercorrido.text.toString()}")
         }
             //Treino prático das outras Views
+            //configurando setOnCheckedChangeListener no RadioGroup
             rgFood.setOnCheckedChangeListener(){
                     group, checkedId ->
                 when (checkedId){
@@ -55,16 +56,33 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            if (cb_Compromisso1.isChecked){
-                Log.d("CHECKBOX1","Compromisso 1")
+            //cofigurando setOnCheckedChangeListener no checkbox
+            cb_Compromisso1.setOnCheckedChangeListener(){
+                buttonView, isChecked ->
+                if (isChecked){
+                    Log.d("CHECKBOX1","Compromisso 1")
+                }else{
+                    Log.d("CHECKBOX1", "Compromisso 1 desmarcado")
+                }
             }
-            if (cb_Compromisso2.isChecked){
-                Log.d("CHECKBOX2","Compromisso 2")
+            cb_Compromisso2.setOnCheckedChangeListener(){
+                    buttonView, isChecked ->
+                if (isChecked){
+                    Log.d("CHECKBOX2","Compromisso 2")
+                }else{
+                    Log.d("CHECKBOX2", "Compromisso 2 desmarcado")
+                }
             }
+            //configurando setOnCheckedChangeListener no switch
+            swLampada.setOnCheckedChangeListener(){
+                buttonView, isChecked ->
             if (swLampada.isChecked){
                 Log.d("SWITCH","Lampada ligada")
+            }else{
+                Log.d("SWITCH", "Lampada desligada")
             }
     }
+}
         setupListeners()
 }
 }
