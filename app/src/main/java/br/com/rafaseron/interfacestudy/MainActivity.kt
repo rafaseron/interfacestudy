@@ -43,12 +43,16 @@ class MainActivity : AppCompatActivity() {
         //agora vamos começar a usar Listeners para monitorar eventos de clicks
         fun setupListeners(){
             btnCalculate.setOnClickListener{
-                val price = edtKHWPrice
-                val km = edtKMPercorrido
-                val custo = (edtKHWPrice.text.toString().toFloat()) / (edtKMPercorrido.text.toString().toFloat())
+                val price = edtKHWPrice.text.toString().toFloat()
+                val km = edtKMPercorrido.text.toString().toFloat()
+                val custoPorKM = price/km
+                //desenvolver ideia abaixo quando for aplicar as correcoes no app
+                //val custoRecarga = custoPorKM*km
                 Log.d("BOTAO CALCULATE","texto capturado (Preço) -> ${edtKHWPrice.text.toString()}")
                 Log.d("BOTAO CALCULATE","texto capturado (KM Percorrido)-> ${edtKMPercorrido.text.toString()}")
-                Log.d("BOTAO CALCULATE", "Custo por KM Rodado -> ${custo.toString()}")
+                Log.d("BOTAO CALCULATE", "Custo por KM Rodado -> ${custoPorKM.toString()}")
+                //desenvolver ideia abaixo quando for aplicar as correcoes no app
+                //Log.d("BOTAO CALCULATE", "Custo total dessa Recarga -> ${custoRecarga.toString()} R$")
         }
             //Treino prático das outras Views
             //configurando setOnCheckedChangeListener no RadioGroup

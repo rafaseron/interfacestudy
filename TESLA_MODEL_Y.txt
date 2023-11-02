@@ -1,0 +1,73 @@
+TESLA MODEL Y
+
+- Bateria total 82.0 KWH
+- Rodagem total: 507 KM quando bateria cheia
+- Custo por KWH cidade: 0.60
+
+PERGUNTA AO BARD:
+vou te dar alguns dados sobre carro elétrico e quero que você calcule para mim: o preço por km percorrido, autonomia de bateria, e o preço por recarga parcial de 100km. quero que me mostre as contas.
+- Bateria total 82.0 KWH
+- Rodagem total: 507 KM quando bateria cheia
+- Custo por KWH cidade: 0.60
+
+RESPOSTA DO BARD (Lembrando que o Chat ainda ta ativo, não exclui o histórico):
+
+*Preço por km percorrido*
+
+Para calcular o preço por km percorrido, precisamos dividir o custo por khw pelo consumo de energia do carro.
+
+Custo por km = Custo por khw / Consumo de energia
+O consumo de energia é calculado dividindo a distância percorrida pela capacidade da bateria.
+
+Consumo de energia = Distância percorrida / Capacidade da bateria
+No nosso caso, temos os seguintes dados:
+
+Custo por khw: R$0,60
+Distância percorrida: 507 km
+Capacidade da bateria: 82,0 kWh
+Portanto, o consumo de energia é de:
+
+Consumo de energia = 507 km / 82,0 kWh = 6,2 km/kWh
+E o preço por km percorrido é de:
+
+Custo por km = R$0,60 / 6,2 km/kWh = R$0,097
+Ou seja, custará R$0,097 para percorrer um quilômetro com o carro elétrico.
+
+*Autonomia de bateria*
+
+A autonomia de bateria é calculada dividindo a capacidade da bateria pelo consumo de energia.
+
+Autonomia de bateria = Capacidade da bateria / Consumo de energia
+No nosso caso, temos os seguintes dados:
+
+Capacidade da bateria: 82,0 kWh
+Consumo de energia: 6,2 km/kWh
+Portanto, a autonomia de bateria é de:
+
+Autonomia de bateria = 82,0 kWh / 6,2 km/kWh = 13,22 km/kWh
+Ou seja, o carro elétrico pode percorrer 13,22 km por cada kWh de energia consumido.
+
+*Preço por recarga parcial de 100km*
+
+O preço por recarga parcial de 100km é calculado multiplicando o preço por km percorrido pela distância percorrida.
+
+Preço por recarga parcial = Preço por km * Distância percorrida
+No nosso caso, temos os seguintes dados:
+
+Preço por km: R$0,097
+Distância percorrida: 100 km
+Portanto, o preço por recarga parcial é de:
+
+Preço por recarga parcial = R$0,097 * 100 km = R$9,70
+Ou seja, a recarga parcial de 100 km custará R$9,70.
+
+*Conclusão*
+
+Com base nos dados fornecidos, os seguintes cálculos foram realizados:
+
+Preço por km percorrido: R$0,097
+Autonomia de bateria: 13,22 km/kWh
+Preço por recarga parcial de 100km: R$9,70
+Espero ter ajudado!
+
+
