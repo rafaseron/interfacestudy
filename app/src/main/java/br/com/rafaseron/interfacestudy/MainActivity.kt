@@ -8,6 +8,7 @@ import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.RadioGroup
 import android.widget.Switch
+import android.widget.TextView
 import kotlin.math.log
 
 class MainActivity : AppCompatActivity() {
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var edtKHWPrice: EditText
     lateinit var edtKMPercorrido: EditText
     lateinit var btnCalculate: Button
+    lateinit var txtResult: TextView
 
     //Treino prático de outras Views
     lateinit var rgFood: RadioGroup
@@ -31,6 +33,7 @@ class MainActivity : AppCompatActivity() {
             edtKHWPrice = findViewById(R.id.edtKHWPrice)
             btnCalculate = findViewById(R.id.btnCalculate)
             edtKMPercorrido = findViewById(R.id.edtKMPercorrido)
+            txtResult = findViewById(R.id.txtResult)
 
             //Treino prático das outras Views
             rgFood = findViewById(R.id.rgFood)
@@ -51,6 +54,7 @@ class MainActivity : AppCompatActivity() {
                 Log.d("BOTAO CALCULATE","texto capturado (Preço) -> ${edtKHWPrice.text.toString()}")
                 Log.d("BOTAO CALCULATE","texto capturado (KM Percorrido)-> ${edtKMPercorrido.text.toString()}")
                 Log.d("BOTAO CALCULATE", "Custo por KM Rodado -> ${custoPorKM.toString()}")
+                txtResult.text = custoPorKM.toString()
                 //desenvolver ideia abaixo quando for aplicar as correcoes no app
                 //Log.d("BOTAO CALCULATE", "Custo total dessa Recarga -> ${custoRecarga.toString()} R$")
         }
