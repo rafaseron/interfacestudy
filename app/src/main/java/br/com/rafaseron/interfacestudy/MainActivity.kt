@@ -43,8 +43,12 @@ class MainActivity : AppCompatActivity() {
         //agora vamos começar a usar Listeners para monitorar eventos de clicks
         fun setupListeners(){
             btnCalculate.setOnClickListener{
+                val price = edtKHWPrice
+                val km = edtKMPercorrido
+                val media = (edtKHWPrice.text.toString().toFloat()) / (edtKMPercorrido.text.toString().toFloat())
                 Log.d("BOTAO CALCULATE","texto capturado (Preço) -> ${edtKHWPrice.text.toString()}")
                 Log.d("BOTAO CALCULATE","texto capturado (KM Percorrido)-> ${edtKMPercorrido.text.toString()}")
+                Log.d("BOTAO CALCULATE", "Media -> ${media.toString()}")
         }
             //Treino prático das outras Views
             //configurando setOnCheckedChangeListener no RadioGroup
