@@ -45,10 +45,10 @@ class MainActivity : AppCompatActivity() {
             btnCalculate.setOnClickListener{
                 val price = edtKHWPrice
                 val km = edtKMPercorrido
-                val media = (edtKHWPrice.text.toString().toFloat()) / (edtKMPercorrido.text.toString().toFloat())
+                val custo = (edtKHWPrice.text.toString().toFloat()) / (edtKMPercorrido.text.toString().toFloat())
                 Log.d("BOTAO CALCULATE","texto capturado (Preço) -> ${edtKHWPrice.text.toString()}")
                 Log.d("BOTAO CALCULATE","texto capturado (KM Percorrido)-> ${edtKMPercorrido.text.toString()}")
-                Log.d("BOTAO CALCULATE", "Media -> ${media.toString()}")
+                Log.d("BOTAO CALCULATE", "Custo por KM Rodado -> ${custo.toString()}")
         }
             //Treino prático das outras Views
             //configurando setOnCheckedChangeListener no RadioGroup
