@@ -1,5 +1,6 @@
 package br.com.rafaseron.interfacestudy
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -36,6 +37,9 @@ class MainActivity : AppCompatActivity() {
         //agora vamos começar a usar Listeners para monitorar eventos de clicks
         fun setupListeners(){
             btnCalculate.setOnClickListener{
+                startActivity(Intent(this,CalcularAutonomiaActivity::class.java))
+                //toda logica de calculo esta ai em baixo
+                /*
                 val price = edtKHWPrice.text.toString().toFloat()
                 val km = edtKMPercorrido.text.toString().toFloat()
                 val custoPorKM = price/km
@@ -44,6 +48,8 @@ class MainActivity : AppCompatActivity() {
                 Log.d("BOTAO CALCULATE","texto capturado (KM Percorrido)-> ${edtKMPercorrido.text.toString()}")
                 Log.d("BOTAO CALCULATE", "Custo por KM Rodado -> ${custoPorKM.toString()}")
                 txtResult.text = custoPorKM.toString()
+
+                 */
         }
 
 }
