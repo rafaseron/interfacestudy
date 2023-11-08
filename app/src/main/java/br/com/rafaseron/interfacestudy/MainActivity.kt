@@ -13,6 +13,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        fun setupViews(){
+            btnCalculate = findViewById(R.id.btnCalculate)
+        }
+
         //adicionar listener para abrir a nova activity no botao
         fun setupListeners(){
             btnCalculate.setOnClickListener{
