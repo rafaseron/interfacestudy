@@ -157,19 +157,10 @@
         android:inputType="numberDecimal"
         android:maxLength="7"
         android:maxLines="1"
+        app:layout_constraintStart_toStartOf="@+id/edtKHWPrice"
+        app:layout_constraintEnd_toEndOf="@+id/edtKHWPrice"
         />
 
-    <EditText
-        android:id="@+id/edtPhone"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/edt_phone"
-        android:maxLength="11"
-        android:maxLines="1"
-        android:visibility="gone"
-        android:inputType="phone"
-        app:layout_constraintTop_toBottomOf="@id/txtNumberCharge"
-        />
 
     <Button
         android:id="@+id/btnCalculate"
@@ -181,73 +172,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="10dp"
         />
-
-    <TextView
-        android:id="@+id/txtResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/btnCalculate"
-
-        />
-
-    <TextView
-        android:id="@+id/txtFood"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Selecione sua comida favorita:"
-        app:layout_constraintTop_toBottomOf="@+id/txtResult"
-        android:layout_marginTop="4dp"
-        />
-    <RadioGroup
-        android:id="@+id/rgFood"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/txtFood"
-        >
-
-        <RadioButton
-            android:id="@+id/rbPizza"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pizza"/>
-        <RadioButton
-            android:id="@+id/rbBurger"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/rb_Burger"/>
-
-    </RadioGroup>
-
-    <CheckBox
-        android:id="@+id/cb_Compromisso1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/rgFood"
-        android:text="@string/cb_compromisso1"/>
-    <CheckBox
-        android:id="@+id/cb_Compromisso2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/cb_Compromisso1"
-        android:text="@string/cb_compromisso2"/>
-
-    <Switch
-        android:id="@+id/swLampada"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/cb_Compromisso2"
-        android:text="Ligar Lampada"
-        />
-
-    <Spinner
-        android:id="@+id/spnCidades"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/swLampada"
-        android:entries="@array/spnCidades"
-        android:layout_marginTop="5dp"
-        />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
