@@ -17,4 +17,5 @@
     <string name="rb_Burger"> Burger </string>
     <string name="cb_compromisso1"> Commitment 1 </string>
     <string name="cb_compromisso2"> Commitment 2 </string>
+    <string name="fechar">Close</string>
 </resources>

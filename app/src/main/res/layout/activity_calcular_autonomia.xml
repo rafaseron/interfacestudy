@@ -7,8 +7,9 @@
 
     <ImageView
         android:id="@+id/imgClose"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:contentDescription="@string/fechar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:src="@drawable/baseline_close_24"
         style="@style/Widget.Material3.Button.IconButton"
         android:background="?attr/selectableItemBackgroundBorderless"
