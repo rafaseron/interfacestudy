@@ -145,6 +145,7 @@
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:text="@string/btn_calcular"
+        style="@style/Widget.Material3.Button.ElevatedButton"
         app:layout_constraintTop_toBottomOf="@+id/txtCharge"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
