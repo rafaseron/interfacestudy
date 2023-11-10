@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -13,6 +14,7 @@ class CalcularAutonomiaActivity : AppCompatActivity() {
     lateinit var edtKMPercorrido: EditText
     lateinit var btnCalculate: Button
     lateinit var txtResult: TextView
+    lateinit var imgClose : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +26,7 @@ class CalcularAutonomiaActivity : AppCompatActivity() {
             btnCalculate = findViewById(R.id.btnCalculate)
             edtKMPercorrido = findViewById(R.id.edtKMPercorrido)
             txtResult = findViewById(R.id.txtResult)
+            imgClose = findViewById(R.id.imgClose)
 
         }
         setupViews()
@@ -36,11 +39,15 @@ class CalcularAutonomiaActivity : AppCompatActivity() {
                 val km = edtKMPercorrido.text.toString().toFloat()
                 val custoPorKM = price/km
 
+
                 Log.d("BOTAO CALCULATE","texto capturado (Preço) -> ${edtKHWPrice.text.toString()}")
                 Log.d("BOTAO CALCULATE","texto capturado (KM Percorrido)-> ${edtKMPercorrido.text.toString()}")
                 Log.d("BOTAO CALCULATE", "Custo por KM Rodado -> ${custoPorKM.toString()}")
                 txtResult.text = custoPorKM.toString()
 
+            }
+            imgClose.setOnClickListener{
+                finish()
             }
 
         }

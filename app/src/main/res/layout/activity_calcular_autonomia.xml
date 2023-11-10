@@ -4,13 +4,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/txtSegunda_tela"
+
+    <ImageView
+        android:id="@+id/imgClose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Segunda Tela"
+        android:src="@drawable/baseline_close_24"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        />
+
+    <TextView
+        android:id="@+id/txtCalcularAutonomia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextAppearance.Material3.HeadlineLarge"
+        android:text="Calcular Autonomia"
+        app:layout_constraintTop_toBottomOf="@id/imgClose"
+        app:layout_constraintStart_toStartOf="@id/imgClose"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginRight="16dp"
@@ -23,7 +37,7 @@
         android:inputType="numberDecimal"
         android:hint="@string/edt_khwPrice"
         android:maxLength="10"
-        app:layout_constraintTop_toBottomOf="@+id/txtSegunda_tela"
+        app:layout_constraintTop_toBottomOf="@+id/txtCalcularAutonomia"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -14,8 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/txt_eletric"
-        android:textStyle="bold"
-        android:textSize="30sp"
+        style="@style/TextAppearance.Material3.HeadlineLarge"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         />
@@ -25,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/txt_model"
-        android:textSize="24sp"
+        style="@style/TextAppearance.Material3.TitleLarge"
         app:layout_constraintTop_toBottomOf="@+id/txtEletricCar"
         app:layout_constraintStart_toStartOf="@+id/txtEletricCar"
         android:layout_marginTop="30dp"
@@ -37,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/txt_favorits"
-        android:textSize="24sp"
+        style="@style/TextAppearance.Material3.TitleLarge"
         app:layout_constraintLeft_toRightOf="@+id/txtModels"
         app:layout_constraintTop_toTopOf="@+id/txtModels"
         android:layout_marginLeft="60dp" />
