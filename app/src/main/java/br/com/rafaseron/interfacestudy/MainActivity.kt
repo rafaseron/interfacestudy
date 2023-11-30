@@ -36,13 +36,14 @@ class MainActivity : AppCompatActivity() {
 
             // este é um adapter. ele é como se fosse uma pessoa que organiza os itens para que o ListView saiba como mostra-los
 
-            //ArrayAdapter é uma classe pronta do Android. estamos criando um objeto e passando os parametros
+            //ArrayAdapter é uma classe pronta do Android. estamos criando um objeto e passando os argumentos pros parametros da classe
             /* no caso passamos que iremos utilizar o modelo de layout de lista sendo "simple list 1" e que os dados
             os quais ele precisa organizar, para que sejam exibidos pela ListView, estão em "dados" */
             val adaptador = ArrayAdapter(this, android.R.layout.simple_list_item_1, dados)
 
-            /*com o nosso adaptador custumizado (com o layout e os dados que escolhemos), falamos que
-            queremos utilizar esse daptador custumizado como nosso adapter. */
+            /*com o nosso objeto adaptador custumizado (com o layout e os dados que escolhemos), falamos que
+            queremos utilizar esse daptador custumizado como nosso adapter.
+            para isso, iremos atribuir o valor desse objeto para a funcao pronta "adapter" */
 
             /* dentro da classe ListView do Android, temos uma funcao ja pronta que é a adapter.
             sempre que criamos um ListView, ele irá herdar todas as propriedades em comum a classes ListView.
