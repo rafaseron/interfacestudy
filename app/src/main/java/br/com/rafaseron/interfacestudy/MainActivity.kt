@@ -40,6 +40,17 @@ class MainActivity : AppCompatActivity() {
             /* no caso passamos que iremos utilizar o modelo de layout de lista sendo "simple list 1" e que os dados
             os quais ele precisa organizar, para que sejam exibidos pela ListView, estão em "dados" */
             val adaptador = ArrayAdapter(this, android.R.layout.simple_list_item_1, dados)
+
+            /*com o nosso adaptador custumizado (com o layout e os dados que escolhemos), falamos que
+            queremos utilizar esse daptador custumizado como nosso adapter. */
+
+            /* dentro da classe ListView do Android, temos uma funcao ja pronta que é a adapter.
+            sempre que criamos um ListView, ele irá herdar todas as propriedades em comum a classes ListView.
+            Ou seja, quando fazemos a atribuicao "lateinit var lvInformacoes: ListView", estamos falando que
+            a variavel "lvInformacoes" irá herdar todas as propriedades e funcoes que uma classe ListView
+            tem por padrão. */
+
+            // aqui então estamos atribuindo o objeto "adaptor" a funcao já existente "adapter".
             lvInformacoes.adapter = adaptador
 
         }
