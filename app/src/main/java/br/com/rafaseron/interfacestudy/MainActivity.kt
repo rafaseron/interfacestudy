@@ -6,11 +6,12 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
+import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
     //inicializamos as variveis e typamos
     lateinit var btnCalculate: Button
-    lateinit var lvInformacoes: ListView
+    //lateinit var rvInformacoes: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
         fun setupViews(){
             btnCalculate = findViewById(R.id.btnCalculate)
-            lvInformacoes = findViewById(R.id.lvInformacoes)
+            //rvInformacoes = findViewById(R.id.rvInformacoes)
         }
         setupViews()
 
@@ -52,7 +53,7 @@ class MainActivity : AppCompatActivity() {
             tem por padrão. */
 
             // aqui então estamos atribuindo o objeto "adaptor" a funcao já existente "adapter".
-            lvInformacoes.adapter = adaptador
+            //rvInformacoes.adapter = adaptador
 
         }
         setupListView()
