@@ -11,9 +11,9 @@ class CarAdapter (private val carros : Array<String>) : RecyclerView.Adapter<Car
 
     //criando um ViewHolder
     class CarViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
-        val textView : TextView
+        val textoPrice : TextView
         init {
-            textView = itemView.findViewById(R.id.txtNumberPrice)
+            textoPrice = itemView.findViewById(R.id.txtNumberPrice)
         }
     }
 
@@ -21,16 +21,21 @@ class CarAdapter (private val carros : Array<String>) : RecyclerView.Adapter<Car
 
     //aqui é onde inflamos um layout
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarViewHolder {
-        //aqui é criada uma variavel view para inflar o layout
+        //aqui é criada um objeto "view" com o layout específico inflado
         val view = LayoutInflater.from(parent.context).inflate(R.layout.carro_item, parent, false)
 
-        //aqui há o retorno da variavel view com o layout já inflado. É passado diretamente ao nosso ViewHolder
+        //aqui precisamos retornar o objeto com o layout inflado. É passado diretamente ao nosso ViewHolder
         return CarViewHolder(view)
     }
 
     //é chamado quando um item precisa ser exibido na tela
-    override fun onBindViewHolder(holder: CarViewHolder, position: Int) {
-        holder.textView.text = carros[position]
+    /* ele é o método que faz o serviço braçal de trocar o conteúdo original da View que selecionamos em cima
+    pelo novo conteúdo que será exibido no lugar */
+
+    /* aqui criaremos um objeto do ViewHolder para então acessar diretamente a variável de view de dentro da classe para então fazer o serviço braçal.
+    * Nisso, passamos então o conjunto de dados a qual ela será responsável por mostrar */
+    override fun onBindViewHolder(objetoHolder: CarViewHolder, position: Int) {
+        objetoHolder.textoPrice.text = carros[position]
     }
 
     //numero total de itens do conjunto de dados
