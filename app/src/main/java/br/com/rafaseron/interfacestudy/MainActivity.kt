@@ -9,6 +9,8 @@ import android.widget.ListView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.rafaseron.interfacestudy.adapter.CarAdapter
+import br.com.rafaseron.interfacestudy.data.CarFactory
+import br.com.rafaseron.interfacestudy.domain.Carro
 
 class MainActivity : AppCompatActivity() {
     //inicializamos as variveis e typamos
@@ -35,9 +37,9 @@ class MainActivity : AppCompatActivity() {
         setupListeners()
 
         fun setupListView(){
-            val dados = arrayOf("Cupcake", "Marshmellow", "Lollipop", "Ice Cream Sandwich", "Jellybean", "teste", "teste", "teste", "teste")
+            //val dados = CarFactory().list
 
-            val adaptador = CarAdapter(dados)
+            val adaptador = CarAdapter(CarFactory().list)
 
             listaCarros.adapter = adaptador
             listaCarros.layoutManager = LinearLayoutManager(this) //tem como definir o layoutmanager aqui e no .xml também (app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager")
