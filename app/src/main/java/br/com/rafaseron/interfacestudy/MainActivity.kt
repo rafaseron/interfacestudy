@@ -3,14 +3,12 @@ package br.com.rafaseron.interfacestudy
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
+import android.util.Log
 import android.widget.Button
-import android.widget.ListView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.rafaseron.interfacestudy.adapter.CarAdapter
 import br.com.rafaseron.interfacestudy.data.CarFactory
-import br.com.rafaseron.interfacestudy.domain.Carro
 
 class MainActivity : AppCompatActivity() {
     //inicializamos as variveis e typamos
@@ -46,4 +44,37 @@ class MainActivity : AppCompatActivity() {
         }
         setupListView()
 }
+
+
+    override fun onStart() {
+        super.onStart()
+        Log.d("Activity","onStart")
+    }
+    override fun onResume() {
+        super.onResume()
+        Log.d("Activity","onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("Activity","onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("Activity","onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("Activity","onDestroy")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.d("Activity","onRestart")
+    }
+
+
+
 }
