@@ -1,5 +1,3 @@
-Agora iremos criar listas utilizando RecyclerView para que sejam de desempenho otimizado para noso app.
+Observando o ciclo de vida de umaa activity por meio do Logcat. Foi observado o comportamento ao iniciar, ao abrir novas activities (o que faz com que a activity anterior seja pausada), minimizar o app e também ao retornar e fechar o aplicativo por completo.
 
-Nisso, iremos trabalhar colocando vários elementos para serem exibidos em forma de lista. Um bom exemplo de funcionamento é uma lista de CardView
-
-<img width="234" alt="Captura de Tela 2023-12-03 às 15 40 36" src="https://github.com/rafaseron/interfacestudy/assets/63885470/d484f4e6-d7ed-47d6-845d-637fcb26d150">
+![Captura de Tela 2023-12-14 às 23 14 03](https://github.com/rafaseron/interfacestudy/assets/63885470/d5fea433-be97-4e95-8d1b-6eaa4c545bd1)
