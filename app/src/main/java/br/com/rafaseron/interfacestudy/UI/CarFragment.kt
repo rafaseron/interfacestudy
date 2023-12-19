@@ -9,11 +9,7 @@ import br.com.rafaseron.interfacestudy.R
 
 class CarFragment : Fragment() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         //return super.onCreateView(inflater, container, savedInstanceState)
         return inflater.inflate(R.layout.car_fragment,container,false)
     }
