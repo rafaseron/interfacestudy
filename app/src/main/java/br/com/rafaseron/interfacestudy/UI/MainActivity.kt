@@ -1,4 +1,4 @@
-package br.com.rafaseron.interfacestudy
+package br.com.rafaseron.interfacestudy.UI
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import br.com.rafaseron.interfacestudy.R
 import br.com.rafaseron.interfacestudy.adapter.CarAdapter
 import br.com.rafaseron.interfacestudy.data.CarFactory
 
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         //adicionar listener para abrir a nova activity no botao
         fun setupListeners(){
             btnCalculate.setOnClickListener{
-                startActivity(Intent(this,CalcularAutonomiaActivity::class.java))
+                startActivity(Intent(this, CalcularAutonomiaActivity::class.java))
         }
 
 }

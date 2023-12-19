@@ -1,4 +1,4 @@
-package br.com.rafaseron.interfacestudy
+package br.com.rafaseron.interfacestudy.UI
 
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import br.com.rafaseron.interfacestudy.R
 
 class CalcularAutonomiaActivity : AppCompatActivity() {
     //inicializacao tardia das variaveis
