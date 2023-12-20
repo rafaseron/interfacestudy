@@ -7,14 +7,19 @@ import android.util.Log
 import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
 import br.com.rafaseron.interfacestudy.R
 import br.com.rafaseron.interfacestudy.adapter.CarAdapter
+import br.com.rafaseron.interfacestudy.adapter.TabAdapter
 import br.com.rafaseron.interfacestudy.data.CarFactory
+import com.google.android.material.tabs.TabLayout
 
 class MainActivity : AppCompatActivity() {
     //inicializamos as variveis e typamos
     lateinit var btnCalculate: Button
     lateinit var listaCarros: RecyclerView
+    lateinit var tabMenu: TabLayout
+    lateinit var viewPager: ViewPager2
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         fun setupViews(){
             btnCalculate = findViewById(R.id.btnCalculate)
             listaCarros = findViewById(R.id.rvInformacoes)
+            tabMenu = findViewById(R.id.tabMenu)
         }
         setupViews()
 
@@ -35,46 +41,32 @@ class MainActivity : AppCompatActivity() {
 }
         setupListeners()
 
-        fun setupListView(){
+        fun setupAdapter(){
+            /* CarAdapter */
             //val dados = CarFactory().list
 
             val adaptador = CarAdapter(CarFactory().list)
 
             listaCarros.adapter = adaptador
             listaCarros.layoutManager = LinearLayoutManager(this) //tem como definir o layoutmanager aqui e no .xml também (app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager")
+
+
+
         }
-        setupListView()
+        setupAdapter()
+
+
+
+        fun setupTabAdapter(){
+            /* TabAdapter (FragmentAdapter) */
+            //val adaptador = TabAdapter(this)
+            viewPager.adapter = TabAdapter(this) //aqui estamos falando pro ViewPager que o adaptador que o controlará é o adaptador personalizado que criamos, trabalhando neste contexto (Nesta Activity)
+
+
+        }
+        setupTabAdapter()
+
 }
-
-
-    override fun onStart() {
-        super.onStart()
-        Log.d("Activity","onStart")
-    }
-    override fun onResume() {
-        super.onResume()
-        Log.d("Activity","onResume")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.d("Activity","onPause")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.d("Activity","onStop")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d("Activity","onDestroy")
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-        Log.d("Activity","onRestart")
-    }
 
 
 

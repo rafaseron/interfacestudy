@@ -19,29 +19,47 @@
         app:layout_constraintStart_toStartOf="parent"
         />
 
-    <TextView
-        android:id="@+id/txtModels"
-        android:layout_width="wrap_content"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabMenu"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/txt_model"
-        style="@style/TextAppearance.Material3.TitleLarge"
         app:layout_constraintTop_toBottomOf="@+id/txtEletricCar"
-        app:layout_constraintStart_toStartOf="@id/txtEletricCar"
-        android:layout_marginTop="30dp"
-        android:paddingLeft="30dp"
+        app:layout_constraintStart_toStartOf="@+id/txtEletricCar">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_model">
+        </com.google.android.material.tabs.TabItem>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_favorits">
+        </com.google.android.material.tabs.TabItem>
+
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vpModelos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabMenu">
+
+    </androidx.viewpager2.widget.ViewPager2>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvInformacoes"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/tabMenu"
+        app:layout_constraintBottom_toTopOf="@id/btnCalculate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/carro_item"
         />
-
-    <TextView
-        android:id="@+id/txtFavorits"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/txt_favorits"
-        style="@style/TextAppearance.Material3.TitleLarge"
-        app:layout_constraintLeft_toRightOf="@+id/txtModels"
-        app:layout_constraintTop_toTopOf="@+id/txtModels"
-        android:layout_marginLeft="60dp" />
-
-
 
     <Button
         android:id="@+id/btnCalculate"
@@ -53,18 +71,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvInformacoes"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/txtModels"
-        app:layout_constraintBottom_toTopOf="@id/btnCalculate"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:listitem="@layout/carro_item"
-        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
