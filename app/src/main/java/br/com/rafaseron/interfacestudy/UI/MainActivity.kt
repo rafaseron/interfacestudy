@@ -12,7 +12,10 @@ import br.com.rafaseron.interfacestudy.R
 import br.com.rafaseron.interfacestudy.adapter.CarAdapter
 import br.com.rafaseron.interfacestudy.adapter.TabAdapter
 import br.com.rafaseron.interfacestudy.data.CarFactory
+import com.google.android.material.tabs.TabItem
 import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
+import com.google.android.material.tabs.TabLayout.Tab
 
 class MainActivity : AppCompatActivity() {
     //inicializamos as variveis e typamos
@@ -29,6 +32,7 @@ class MainActivity : AppCompatActivity() {
             btnCalculate = findViewById(R.id.btnCalculate)
             listaCarros = findViewById(R.id.rvInformacoes)
             tabMenu = findViewById(R.id.tabMenu)
+            viewPager = findViewById(R.id.vpModelos)
         }
         setupViews()
 
@@ -37,6 +41,30 @@ class MainActivity : AppCompatActivity() {
             btnCalculate.setOnClickListener{
                 startActivity(Intent(this, CalcularAutonomiaActivity::class.java))
         }
+
+            tabMenu.addOnTabSelectedListener(object:OnTabSelectedListener{
+                override fun onTabSelected(tab: Tab?) {
+                    Log.d("DEBUG", "Tab selected: ${tab?.position}")
+
+                    //if (tab != null) { viewPager.currentItem = tab.position }
+
+                    tab?.let {
+                        viewPager.currentItem = it.position
+                        Log.d("DEBUG", "Dentro da verificacao After setting current item")
+                    }
+                    Log.d("DEBUG", "Apos verificacao After setting current item")
+                }
+
+
+                override fun onTabUnselected(tab: Tab?) {
+                    TODO("Not yet implemented")
+                }
+
+
+                override fun onTabReselected(tab: Tab?) {
+                    TODO("Not yet implemented")
+                }
+            })
 
 }
         setupListeners()
