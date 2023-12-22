@@ -41,32 +41,7 @@ class MainActivity : AppCompatActivity() {
             btnCalculate.setOnClickListener{
                 startActivity(Intent(this, CalcularAutonomiaActivity::class.java))
         }
-
-            tabMenu.addOnTabSelectedListener(object:OnTabSelectedListener{
-                override fun onTabSelected(tab: Tab?) {
-                    Log.d("DEBUG", "Tab selected: ${tab?.position}")
-
-                    if (tab != null) { viewPager.currentItem = tab.position }
-
-                    /*tab?.let {
-                        viewPager.currentItem = it.position
-                        Log.d("DEBUG", "Dentro da verificacao After setting current item")
-                    }*/
-                    Log.d("DEBUG", "Apos verificacao After setting current item")
-                }
-
-
-                override fun onTabUnselected(tab: Tab?) {
-                    TODO("Not yet implemented")
-                }
-
-
-                override fun onTabReselected(tab: Tab?) {
-                    TODO("Not yet implemented")
-                }
-            })
-
-}
+    }
         setupListeners()
 
         fun setupAdapter(){
@@ -77,8 +52,6 @@ class MainActivity : AppCompatActivity() {
 
             listaCarros.adapter = adaptador
             listaCarros.layoutManager = LinearLayoutManager(this) //tem como definir o layoutmanager aqui e no .xml também (app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager")
-
-
 
         }
         setupAdapter()
@@ -93,6 +66,25 @@ class MainActivity : AppCompatActivity() {
 
         }
         setupTabAdapter()
+
+        fun tabListener(){
+            tabMenu.addOnTabSelectedListener(object:OnTabSelectedListener{
+                override fun onTabSelected(tab: Tab?) {
+                    Log.d("ABRIMOS O TAB ITEM", "Tab selected: ${tab?.position}")
+
+                    if (tab != null) { viewPager.currentItem = tab.position }
+
+                    /*tab?.let {
+                        viewPager.currentItem = it.position
+                        Log.d("DEBUG", "Dentro da verificacao After setting current item")
+                    }*/
+                    Log.d("DEBUG", "Apos verificacao After setting current item")
+                }
+                override fun onTabUnselected(tab: Tab?) { }
+                override fun onTabReselected(tab: Tab?) { }
+            })
+        }
+        tabListener()
 
 }
 
