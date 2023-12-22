@@ -46,12 +46,12 @@ class MainActivity : AppCompatActivity() {
                 override fun onTabSelected(tab: Tab?) {
                     Log.d("DEBUG", "Tab selected: ${tab?.position}")
 
-                    //if (tab != null) { viewPager.currentItem = tab.position }
+                    if (tab != null) { viewPager.currentItem = tab.position }
 
-                    tab?.let {
+                    /*tab?.let {
                         viewPager.currentItem = it.position
                         Log.d("DEBUG", "Dentro da verificacao After setting current item")
-                    }
+                    }*/
                     Log.d("DEBUG", "Apos verificacao After setting current item")
                 }
 
