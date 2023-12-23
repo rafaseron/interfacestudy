@@ -28,9 +28,7 @@ class CarFragmentModels : Fragment() {
         return inflater.inflate(R.layout.car_fragment_models, container, false)
 
 
-        btnCalculate = requireView().findViewById(R.id.btnCalculate) // <- AQUI
-        listaCarros = requireView().findViewById(R.id.rvInformacoesFragment) // <- AQUI
-
+        setupView()
         setupListeners()
         setupAdapter()
 
@@ -38,9 +36,14 @@ class CarFragmentModels : Fragment() {
         return view
     }
 
+    fun setupView(){
+        btnCalculate = requireView().findViewById<Button>(R.id.btnCalculate) // <- AQUI
+        listaCarros = requireView().findViewById<RecyclerView>(R.id.rvInformacoesFragment) // <- AQUI
+    }
+
     fun setupListeners(){   // <- AQUI
         btnCalculate.setOnClickListener{
-            startActivity(Intent(this, CalcularAutonomiaActivity::class.java))
+            startActivity(Intent(requireContext(), CalcularAutonomiaActivity::class.java))
         }
     }
 
@@ -52,7 +55,7 @@ class CarFragmentModels : Fragment() {
         val adaptador = CarAdapter(CarFactory().list)
 
         listaCarros.adapter = adaptador // <- AQUI
-        listaCarros.layoutManager = LinearLayoutManager(this) //tem como definir o layoutmanager aqui e no .xml também (app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager")
+        listaCarros.layoutManager = LinearLayoutManager(requireContext()) //tem como definir o layoutmanager aqui e no .xml também (app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager")
 
     }
 }
