@@ -28,18 +28,6 @@
         tools:listitem="@layout/carro_item"
         />
 
-    <Button
-        android:id="@+id/btnCalculate"
-        style="@style/Widget.Material3.Button.TonalButton"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/btn_calcular"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:visibility="gone"/>
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabCalcular"
         android:contentDescription="@string/btn_calcular"

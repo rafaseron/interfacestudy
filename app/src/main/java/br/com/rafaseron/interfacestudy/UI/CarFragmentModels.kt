@@ -17,7 +17,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class CarFragmentModels : Fragment() {
 
-    //lateinit var btnCalculate: Button
     lateinit var listaCarros: RecyclerView
     lateinit var fabCalcular: FloatingActionButton
 
@@ -34,16 +33,12 @@ class CarFragmentModels : Fragment() {
     }
 
     fun setupView(){
-        //btnCalculate = requireView().findViewById<Button>(R.id.btnCalculate)
         listaCarros = requireView().findViewById<RecyclerView>(R.id.rvInformacoesFragment)
         //val listaCarros: View? = activity?.findViewById(R.id.rvInformacoesFragment)
         fabCalcular = requireView().findViewById<FloatingActionButton>(R.id.fabCalcular)
     }
 
     fun setupListeners(){
-        /*btnCalculate.setOnClickListener{
-            startActivity(Intent(requireContext(), CalcularAutonomiaActivity::class.java))
-        }*/
         fabCalcular.setOnClickListener(){
             startActivity(Intent(requireContext(), CalcularAutonomiaActivity::class.java))
         }
