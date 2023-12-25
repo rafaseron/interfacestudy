@@ -51,7 +51,7 @@ class CarFragmentModels : Fragment() {
 
         val adaptador = CarAdapter(CarFactory().list)
 
-        listaCarros.adapter = adaptador // <- AQUI
+        listaCarros.adapter = adaptador
         listaCarros.layoutManager = LinearLayoutManager(requireContext()) //tem como definir o layoutmanager aqui e no .xml também (app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager")
 
     }
