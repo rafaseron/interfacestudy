@@ -39,6 +39,7 @@ class CarFragmentModels : Fragment() {
     fun setupView(){
         btnCalculate = requireView().findViewById<Button>(R.id.btnCalculate) // <- AQUI
         listaCarros = requireView().findViewById<RecyclerView>(R.id.rvInformacoesFragment) // <- AQUI
+        //val listaCarros: View? = activity?.findViewById(R.id.rvInformacoesFragment)
     }
 
     fun setupListeners(){   // <- AQUI

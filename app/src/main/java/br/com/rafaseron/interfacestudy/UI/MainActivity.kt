@@ -63,7 +63,6 @@ class MainActivity : AppCompatActivity() {
             //val adaptador = TabAdapter(this)
             viewPager.adapter = TabAdapter(this) //aqui estamos falando pro ViewPager que o adaptador que o controlará é o adaptador personalizado que criamos, trabalhando neste contexto (Nesta Activity)
 
-
         }
         setupTabAdapter()
 
