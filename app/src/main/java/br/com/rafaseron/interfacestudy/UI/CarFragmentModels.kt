@@ -23,13 +23,13 @@ class CarFragmentModels : Fragment() {
         //return super.onCreateView(inflater, container, savedInstanceState)
         return inflater.inflate(R.layout.car_fragment_models, container, false)
 
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         setupView()
         setupListeners()
         setupAdapter()
-
-
-        return view
     }
 
     fun setupView(){

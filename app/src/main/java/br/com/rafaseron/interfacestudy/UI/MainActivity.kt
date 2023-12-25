@@ -19,8 +19,6 @@ import com.google.android.material.tabs.TabLayout.Tab
 
 class MainActivity : AppCompatActivity() {
     //inicializamos as variveis e typamos
-    lateinit var btnCalculate: Button // <- PASSAR ESSA LOGICA
-    lateinit var listaCarros: RecyclerView // <- PASSAR ESSA LOGICA
     lateinit var tabMenu: TabLayout
     lateinit var viewPager: ViewPager2
 
@@ -29,33 +27,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         fun setupViews(){
-            btnCalculate = findViewById(R.id.btnCalculate) // <- AQUI
-            listaCarros = findViewById(R.id.rvInformacoes) // <- AQUI
             tabMenu = findViewById(R.id.tabMenu)
             viewPager = findViewById(R.id.vpModelos)
         }
         setupViews()
-
-        //adicionar listener para abrir a nova activity no botao
-        fun setupListeners(){   // <- AQUI
-            btnCalculate.setOnClickListener{
-                startActivity(Intent(this, CalcularAutonomiaActivity::class.java))
-        }
-    }
-        setupListeners()
-
-        fun setupAdapter(){
-            /* CarAdapter */
-            //val dados = CarFactory().list
-
-            val adaptador = CarAdapter(CarFactory().list)
-
-            listaCarros.adapter = adaptador // <- AQUI
-            listaCarros.layoutManager = LinearLayoutManager(this) //tem como definir o layoutmanager aqui e no .xml também (app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager")
-
-        }
-        setupAdapter()
-
 
 
         fun setupTabAdapter(){

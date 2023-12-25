@@ -13,9 +13,12 @@ class CarFragmentFavorits: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         return inflater.inflate(R.layout.car_fragment_favorits, container, false)
-        setupTextView()
-        return view
 
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupTextView()
     }
     fun setupTextView(){
         val txtWelcome: TextView = requireView().findViewById(R.id.textView)
