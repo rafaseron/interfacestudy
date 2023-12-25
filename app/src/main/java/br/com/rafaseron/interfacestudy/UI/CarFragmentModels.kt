@@ -13,11 +13,13 @@ import androidx.recyclerview.widget.RecyclerView.Recycler
 import br.com.rafaseron.interfacestudy.R
 import br.com.rafaseron.interfacestudy.adapter.CarAdapter
 import br.com.rafaseron.interfacestudy.data.CarFactory
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class CarFragmentModels : Fragment() {
 
-    lateinit var btnCalculate: Button // <- PASSAR ESSA LOGICA
-    lateinit var listaCarros: RecyclerView // <- PASSAR ESSA LOGICA
+    //lateinit var btnCalculate: Button
+    lateinit var listaCarros: RecyclerView
+    lateinit var fabCalcular: FloatingActionButton
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         //return super.onCreateView(inflater, container, savedInstanceState)
@@ -32,13 +34,17 @@ class CarFragmentModels : Fragment() {
     }
 
     fun setupView(){
-        btnCalculate = requireView().findViewById<Button>(R.id.btnCalculate) // <- AQUI
-        listaCarros = requireView().findViewById<RecyclerView>(R.id.rvInformacoesFragment) // <- AQUI
+        //btnCalculate = requireView().findViewById<Button>(R.id.btnCalculate)
+        listaCarros = requireView().findViewById<RecyclerView>(R.id.rvInformacoesFragment)
         //val listaCarros: View? = activity?.findViewById(R.id.rvInformacoesFragment)
+        fabCalcular = requireView().findViewById<FloatingActionButton>(R.id.fabCalcular)
     }
 
-    fun setupListeners(){   // <- AQUI
-        btnCalculate.setOnClickListener{
+    fun setupListeners(){
+        /*btnCalculate.setOnClickListener{
+            startActivity(Intent(requireContext(), CalcularAutonomiaActivity::class.java))
+        }*/
+        fabCalcular.setOnClickListener(){
             startActivity(Intent(requireContext(), CalcularAutonomiaActivity::class.java))
         }
     }
