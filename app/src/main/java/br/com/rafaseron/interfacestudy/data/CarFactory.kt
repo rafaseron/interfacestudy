@@ -13,4 +13,18 @@ class CarFactory {
 
     )
 
+    //VERBOS HTTP
+
+    /*
+        - GET (recuperar informacoes)
+        - POST (enviar informacoes)
+        - DELETE (deletar algum recurso)
+        - PUT (alterar uma entidade como um to.do) -> exemplo, seria usar para alterar todos os atributos da classe Carro acima
+        - PATCH (alterar um atributo da entidade) -> exemplo, alterar só o atributo da bateria
+
+        tem como utilizar por exemplo PUT ou POST para fazer alguams alteracoes ai, mas nao é uma boa prática
+     */
+
+
+
 }
