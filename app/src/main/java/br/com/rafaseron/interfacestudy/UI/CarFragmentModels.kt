@@ -1,7 +1,9 @@
 package br.com.rafaseron.interfacestudy.UI
 
 import android.content.Intent
+import android.os.AsyncTask
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +16,13 @@ import br.com.rafaseron.interfacestudy.R
 import br.com.rafaseron.interfacestudy.adapter.CarAdapter
 import br.com.rafaseron.interfacestudy.data.CarFactory
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import org.json.JSONObject
+import java.io.BufferedReader
+import java.io.InputStream
+import java.io.InputStreamReader
+import java.lang.Exception
+import java.net.HttpURLConnection
+import java.net.URL
 
 class CarFragmentModels : Fragment() {
 
@@ -55,4 +64,66 @@ class CarFragmentModels : Fragment() {
         listaCarros.layoutManager = LinearLayoutManager(requireContext()) //tem como definir o layoutmanager aqui e no .xml também (app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager")
 
     }
+
+    inner class GetCarInformation: AsyncTask<String, String, String>() {
+        override fun doInBackground(vararg url: String?): String {
+            var urlConnection: HttpURLConnection? = null
+            try {
+                val urlBase = URL(url[0])
+                val urlConnection = urlBase.openConnection() as HttpURLConnection
+                urlConnection.connectTimeout = 60000
+                urlConnection.readTimeout = 60000
+
+                var inString = streamToString(urlConnection.inputStream)
+                publishProgress(inString)
+
+            }catch (ex: Exception){
+                Log.e("Erro", "Erro ao realizar processamento")
+            }finally {
+                urlConnection?.disconnect()
+            }
+
+            return " "
+        }
+
+        override fun onPreExecute(){
+            super.onPreExecute()
+            Log.d("my task", "em pre execucao")
+
+        }
+        
+        fun streamToString(inputStream: InputStream): String{
+            val bufferReader = BufferedReader(InputStreamReader(inputStream))
+            var line: String
+            var result = " "
+
+            try {
+                do {
+                     line = bufferReader.readLine()
+
+                    line?.let { result += line }
+                    /*if (line != null){
+                        result += line
+                    }*/
+                } while (line != null)
+            }catch (ex: Exception){
+                Log.e("erro", "erro ao parcelar Stream")
+            }
+            return result
+        }
+
+        override fun onProgressUpdate(vararg values: String?) {
+            try {
+                values[0]?.let{
+                    var json: JSONObject = JSONObject(values[0]!!)
+                }
+
+            }catch (ex: Exception){
+
+            }
+        }
+
+
+    }
+
 }
