@@ -16,7 +16,9 @@ import br.com.rafaseron.interfacestudy.R
 import br.com.rafaseron.interfacestudy.adapter.CarAdapter
 import br.com.rafaseron.interfacestudy.data.CarFactory
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import org.json.JSONArray
 import org.json.JSONObject
+import org.json.JSONTokener
 import java.io.BufferedReader
 import java.io.InputStream
 import java.io.InputStreamReader
@@ -95,8 +97,20 @@ class CarFragmentModels : Fragment() {
 
         override fun onProgressUpdate(vararg values: String?) {
             try {
-                values[0]?.let{
-                    var json: JSONObject = JSONObject(values[0]!!)
+                val jsonArray = JSONTokener(values[0]).nextValue() as JSONArray
+                for (i in 0 until jsonArray.length()){
+                    val id = jsonArray.getJSONObject(i).getString("id")
+                    Log.d("JSON", "id")
+                    val preco = jsonArray.getJSONObject(i).getString("preco")
+                    Log.d("JSON", "preco")
+                    val bateria = jsonArray.getJSONObject(i).getString("bateria")
+                    Log.d("JSON", "bateria")
+                    val potencia = jsonArray.getJSONObject(i).getString("potencia")
+                    Log.d("JSON", "potencia")
+                    val recarga = jsonArray.getJSONObject(i).getString("recarga")
+                    Log.d("JSON", "recarga")
+                    val urlPhoto = jsonArray.getJSONObject(i).getString("urlPhoto")
+                    Log.d("JSON", "urlPhoto")
                 }
 
             }catch (ex: Exception){
