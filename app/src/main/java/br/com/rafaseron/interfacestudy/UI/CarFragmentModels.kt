@@ -49,7 +49,8 @@ class CarFragmentModels : Fragment() {
 
     fun setupListeners(){
         fabCalcular.setOnClickListener(){
-            startActivity(Intent(requireContext(), CalcularAutonomiaActivity::class.java))
+            //startActivity(Intent(requireContext(), CalcularAutonomiaActivity::class.java))
+            MyTask().execute("rafaseron.github.io/cars-api/car.json")
         }
     }
 
@@ -65,7 +66,7 @@ class CarFragmentModels : Fragment() {
 
     }
 
-    inner class GetCarInformation: AsyncTask<String, String, String>() {
+    inner class MyTask: AsyncTask<String, String, String>() {
         override fun doInBackground(vararg url: String?): String {
             var urlConnection: HttpURLConnection? = null
             try {
@@ -74,8 +75,8 @@ class CarFragmentModels : Fragment() {
                 urlConnection.connectTimeout = 60000
                 urlConnection.readTimeout = 60000
 
-                var inString = streamToString(urlConnection.inputStream)
-                publishProgress(inString)
+                var response = urlConnection.inputStream.bufferedReader().use { it.readText() }
+                publishProgress(response)
 
             }catch (ex: Exception){
                 Log.e("Erro", "Erro ao realizar processamento")
@@ -90,26 +91,6 @@ class CarFragmentModels : Fragment() {
             super.onPreExecute()
             Log.d("my task", "em pre execucao")
 
-        }
-        
-        fun streamToString(inputStream: InputStream): String{
-            val bufferReader = BufferedReader(InputStreamReader(inputStream))
-            var line: String
-            var result = " "
-
-            try {
-                do {
-                     line = bufferReader.readLine()
-
-                    line?.let { result += line }
-                    /*if (line != null){
-                        result += line
-                    }*/
-                } while (line != null)
-            }catch (ex: Exception){
-                Log.e("erro", "erro ao parcelar Stream")
-            }
-            return result
         }
 
         override fun onProgressUpdate(vararg values: String?) {
