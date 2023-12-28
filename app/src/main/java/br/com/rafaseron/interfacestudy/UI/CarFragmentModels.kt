@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView.Recycler
 import br.com.rafaseron.interfacestudy.R
 import br.com.rafaseron.interfacestudy.adapter.CarAdapter
 import br.com.rafaseron.interfacestudy.data.CarFactory
+import br.com.rafaseron.interfacestudy.domain.Carro
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.json.JSONArray
 import org.json.JSONObject
@@ -30,6 +31,7 @@ class CarFragmentModels : Fragment() {
 
     lateinit var listaCarros: RecyclerView
     lateinit var fabCalcular: FloatingActionButton
+    var carrosArray: ArrayList<Carro> = ArrayList()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         //return super.onCreateView(inflater, container, savedInstanceState)
@@ -40,7 +42,8 @@ class CarFragmentModels : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupView()
         setupListeners()
-        setupAdapter()
+        runTask()
+
     }
 
     fun setupView(){
@@ -51,9 +54,12 @@ class CarFragmentModels : Fragment() {
 
     fun setupListeners(){
         fabCalcular.setOnClickListener(){
-            //startActivity(Intent(requireContext(), CalcularAutonomiaActivity::class.java))
-            MyTask().execute("rafaseron.github.io/cars-api/car.json")
+            startActivity(Intent(requireContext(), CalcularAutonomiaActivity::class.java))
         }
+    }
+
+    fun runTask(){
+        MyTask().execute("https://rafaseron.github.io/cars-api/car.json")
     }
 
 
@@ -61,7 +67,7 @@ class CarFragmentModels : Fragment() {
         /* CarAdapter */
         //val dados = CarFactory().list
 
-        val adaptador = CarAdapter(CarFactory().list)
+        val adaptador = CarAdapter(carrosArray)
 
         listaCarros.adapter = adaptador
         listaCarros.layoutManager = LinearLayoutManager(requireContext()) //tem como definir o layoutmanager aqui e no .xml também (app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager")
@@ -98,6 +104,8 @@ class CarFragmentModels : Fragment() {
         override fun onProgressUpdate(vararg values: String?) {
             try {
                 val jsonArray = JSONTokener(values[0]).nextValue() as JSONArray
+
+
                 for (i in 0 until jsonArray.length()){
                     val id = jsonArray.getJSONObject(i).getString("id")
                     Log.d("JSON", "id")
@@ -111,11 +119,22 @@ class CarFragmentModels : Fragment() {
                     Log.d("JSON", "recarga")
                     val urlPhoto = jsonArray.getJSONObject(i).getString("urlPhoto")
                     Log.d("JSON", "urlPhoto")
+
+
+                    val moldeCarro = Carro(id = id.toInt(), preco = preco, bateria = bateria, potencia = potencia, recarga = recarga, urlPhoto = urlPhoto)
+
+                    carrosArray.add(moldeCarro)
+                    Log.d("model", moldeCarro.toString())
+
                 }
 
+                setupAdapter()
+
             }catch (ex: Exception){
+                Log.e("erro", ex.message.toString())
 
             }
+
         }
 
 

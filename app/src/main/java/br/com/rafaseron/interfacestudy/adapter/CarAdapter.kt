@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.rafaseron.interfacestudy.R
 import br.com.rafaseron.interfacestudy.domain.Carro
 
-class CarAdapter (private val ListaCarros : List<Carro>) : RecyclerView.Adapter<CarAdapter.CarViewHolder>() {
+class CarAdapter (private val listaCarros : List<Carro>) : RecyclerView.Adapter<CarAdapter.CarViewHolder>() {
 
     //criando um ViewHolder
     class CarViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
@@ -42,14 +42,14 @@ class CarAdapter (private val ListaCarros : List<Carro>) : RecyclerView.Adapter<
     /* aqui criaremos um objeto do ViewHolder para então acessar diretamente a variável de view de dentro da classe para então fazer o serviço braçal.
     * Nisso, passamos então o conjunto de dados a qual ela será responsável por mostrar */
     override fun onBindViewHolder(objetoHolder: CarViewHolder, position: Int) {
-        objetoHolder.textoPrice.text = ListaCarros[position].preco
-        objetoHolder.textoBateria.text = ListaCarros[position].bateria
-        objetoHolder.textoPotencia.text = ListaCarros[position].potencia
-        objetoHolder.textoRecarga.text = ListaCarros[position].recarga
+        objetoHolder.textoPrice.text = listaCarros[position].preco
+        objetoHolder.textoBateria.text = listaCarros[position].bateria
+        objetoHolder.textoPotencia.text = listaCarros[position].potencia
+        objetoHolder.textoRecarga.text = listaCarros[position].recarga
     }
 
     //numero total de itens do conjunto de dados
-    override fun getItemCount(): Int = ListaCarros.size
+    override fun getItemCount(): Int = listaCarros.size
 
 
 }
