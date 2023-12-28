@@ -43,7 +43,6 @@ class CarFragmentModels : Fragment() {
         setupView()
         setupListeners()
         runTask()
-
     }
 
     fun setupView(){
