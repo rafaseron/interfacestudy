@@ -1,13 +1,19 @@
 package br.com.rafaseron.interfacestudy.UI
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.Network
+import android.net.NetworkCapabilities
 import android.os.AsyncTask
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -31,6 +37,7 @@ class CarFragmentModels : Fragment() {
 
     lateinit var listaCarros: RecyclerView
     lateinit var fabCalcular: FloatingActionButton
+    lateinit var pbLoading: ProgressBar
     var carrosArray: ArrayList<Carro> = ArrayList()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -42,14 +49,18 @@ class CarFragmentModels : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupView()
         setupListeners()
+        checkForInternet(context)
+        Log.d("INTERNET", checkForInternet(context).toString())
         runTask()
     }
 
     fun setupView(){
+        pbLoading = requireView().findViewById<ProgressBar>(R.id.pbLoading)
         listaCarros = requireView().findViewById<RecyclerView>(R.id.rvInformacoesFragment)
         //val listaCarros: View? = activity?.findViewById(R.id.rvInformacoesFragment)
         fabCalcular = requireView().findViewById<FloatingActionButton>(R.id.fabCalcular)
     }
+
 
     fun setupListeners(){
         fabCalcular.setOnClickListener(){
@@ -58,6 +69,7 @@ class CarFragmentModels : Fragment() {
     }
 
     fun runTask(){
+        pbLoading.visibility = View.VISIBLE
         MyTask().execute("https://rafaseron.github.io/cars-api/car.json")
     }
 
@@ -70,6 +82,30 @@ class CarFragmentModels : Fragment() {
 
         listaCarros.adapter = adaptador
         listaCarros.layoutManager = LinearLayoutManager(requireContext()) //tem como definir o layoutmanager aqui e no .xml também (app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager")
+
+    }
+
+    fun checkForInternet(contexto: Context?): Boolean{
+
+        val connectionManager = context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+
+            val network = connectionManager.activeNetwork ?: return false
+            val activeNetwork = connectionManager.getNetworkCapabilities(network) ?: return false
+
+            return when {
+                activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
+                activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
+                else -> false
+            }
+
+        }else{
+            @Suppress("DEPRECATED")
+            val networkInfo = connectionManager.activeNetworkInfo ?: return false
+            @Suppress("DEPRECATED")
+            return networkInfo.isConnected
+        }
 
     }
 
@@ -87,6 +123,8 @@ class CarFragmentModels : Fragment() {
                 if(responseCode == HttpURLConnection.HTTP_OK){
                     var response = urlConnection.inputStream.bufferedReader().use { it.readText() }
                     publishProgress(response)
+                    listaCarros.visibility = View.VISIBLE
+                    pbLoading.visibility = View.INVISIBLE
                 }else{
                     Log.e("Erro", "Servico retornou codigo $responseCode")
                 }
@@ -134,6 +172,9 @@ class CarFragmentModels : Fragment() {
                 }
 
                 setupAdapter()
+                //listaCarros.visibility = View.VISIBLE
+                //pbLoading.visibility = View.INVISIBLE
+                //pbLoading.visibility = View.GONE
 
             }catch (ex: Exception){
                 Log.e("erro", ex.message.toString())
