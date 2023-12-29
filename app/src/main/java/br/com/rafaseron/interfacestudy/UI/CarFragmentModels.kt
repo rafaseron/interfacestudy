@@ -39,7 +39,6 @@ class CarFragmentModels : Fragment() {
     lateinit var fabCalcular: FloatingActionButton
     lateinit var pbLoading: ProgressBar
     var carrosArray: ArrayList<Carro> = ArrayList()
-    //tocommit
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         //return super.onCreateView(inflater, container, savedInstanceState)
