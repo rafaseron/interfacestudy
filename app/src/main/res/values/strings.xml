@@ -17,6 +17,7 @@
     <string name="cb_compromisso1"> Compromisso 1 </string>
     <string name="cb_compromisso2"> Compromisso 2 </string>
     <string name="fechar">Fechar</string>
+    <string name="text_noConnection">Ah! parece que estamos desconectados D:</string>
     <string-array name="spnCidades">
         <item> São Carlos </item>
         <item> Dourados </item>

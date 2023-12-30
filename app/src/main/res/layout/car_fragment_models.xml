@@ -53,6 +53,33 @@
         tools:visibility="visible"
         />
 
+    <ImageView
+        android:id="@+id/imgNoConnection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_wifi_off_100"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.206"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/txtNoConnection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/imgNoConnection"
+        app:layout_constraintStart_toStartOf="@id/imgNoConnection"
+        app:layout_constraintEnd_toEndOf="@id/imgNoConnection"
+        android:text="@string/text_noConnection"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
 
 
 

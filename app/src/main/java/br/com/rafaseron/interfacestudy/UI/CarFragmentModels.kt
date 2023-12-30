@@ -13,7 +13,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -38,6 +40,8 @@ class CarFragmentModels : Fragment() {
     lateinit var listaCarros: RecyclerView
     lateinit var fabCalcular: FloatingActionButton
     lateinit var pbLoading: ProgressBar
+    lateinit var imgNoConnection: ImageView
+    lateinit var txtNoConnection: TextView
     var carrosArray: ArrayList<Carro> = ArrayList()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -56,6 +60,8 @@ class CarFragmentModels : Fragment() {
 
     fun setupView(){
         pbLoading = requireView().findViewById<ProgressBar>(R.id.pbLoading)
+        imgNoConnection = requireView().findViewById<ImageView>(R.id.imgNoConnection)
+        txtNoConnection = requireView().findViewById<TextView>(R.id.txtNoConnection)
         listaCarros = requireView().findViewById<RecyclerView>(R.id.rvInformacoesFragment)
         //val listaCarros: View? = activity?.findViewById(R.id.rvInformacoesFragment)
         fabCalcular = requireView().findViewById<FloatingActionButton>(R.id.fabCalcular)
@@ -70,6 +76,8 @@ class CarFragmentModels : Fragment() {
 
     fun runTask(){
         pbLoading.visibility = View.VISIBLE
+        imgNoConnection.visibility = View.VISIBLE
+        txtNoConnection.visibility = View.VISIBLE
         MyTask().execute("https://rafaseron.github.io/cars-api/car.json")
     }
 
@@ -125,6 +133,8 @@ class CarFragmentModels : Fragment() {
                     publishProgress(response)
                     listaCarros.visibility = View.VISIBLE
                     pbLoading.visibility = View.INVISIBLE
+                    imgNoConnection.visibility = View.INVISIBLE
+                    txtNoConnection.visibility = View.INVISIBLE
                 }else{
                     Log.e("Erro", "Servico retornou codigo $responseCode")
                 }
