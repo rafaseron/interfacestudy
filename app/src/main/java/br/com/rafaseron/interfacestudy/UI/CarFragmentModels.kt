@@ -77,6 +77,7 @@ class CarFragmentModels : Fragment() {
 
     fun runTask(){
         //pbLoading.visibility = View.VISIBLE
+        //carrosArray.clear()
         MyTask().execute("https://rafaseron.github.io/cars-api/car.json")
     }
 
@@ -206,12 +207,12 @@ class CarFragmentModels : Fragment() {
 
     }
 
-    override fun onResume() {
+    /*override fun onResume() {
         super.onResume()
         checkForInternet(context)
         connectionReturn()
         Log.d("INTERNET", checkForInternet(context).toString())
         runTask()
-    }
+    }*/
 
 }
