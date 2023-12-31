@@ -54,6 +54,7 @@ class CarFragmentModels : Fragment() {
         setupView()
         setupListeners()
         checkForInternet(context)
+        connectionReturn()
         Log.d("INTERNET", checkForInternet(context).toString())
         runTask()
     }
@@ -75,9 +76,7 @@ class CarFragmentModels : Fragment() {
     }
 
     fun runTask(){
-        pbLoading.visibility = View.VISIBLE
-        imgNoConnection.visibility = View.VISIBLE
-        txtNoConnection.visibility = View.VISIBLE
+        //pbLoading.visibility = View.VISIBLE
         MyTask().execute("https://rafaseron.github.io/cars-api/car.json")
     }
 
@@ -117,6 +116,20 @@ class CarFragmentModels : Fragment() {
 
     }
 
+    fun connectionReturn (){
+        if (checkForInternet(context) == true){
+            imgNoConnection.visibility = View.GONE
+            txtNoConnection.visibility = View.GONE
+            listaCarros.visibility = View.VISIBLE
+            pbLoading.visibility = View.INVISIBLE
+        }else{
+            imgNoConnection.visibility = View.VISIBLE
+            txtNoConnection.visibility = View.VISIBLE
+            listaCarros.visibility = View.GONE
+            pbLoading.visibility = View.VISIBLE
+        }
+    }
+
     inner class MyTask: AsyncTask<String, String, String>() {
         override fun doInBackground(vararg url: String?): String {
             var urlConnection: HttpURLConnection? = null
@@ -131,11 +144,11 @@ class CarFragmentModels : Fragment() {
                 if(responseCode == HttpURLConnection.HTTP_OK){
                     var response = urlConnection.inputStream.bufferedReader().use { it.readText() }
                     publishProgress(response)
-                    listaCarros.visibility = View.VISIBLE
-                    pbLoading.visibility = View.INVISIBLE
-                    imgNoConnection.visibility = View.GONE
-                    txtNoConnection.visibility = View.GONE
                 }else{
+                    listaCarros.visibility = View.GONE
+                    pbLoading.visibility = View.VISIBLE
+                    imgNoConnection.visibility = View.VISIBLE
+                    txtNoConnection.visibility = View.VISIBLE
                     Log.e("Erro", "Servico retornou codigo $responseCode")
                 }
 
@@ -182,9 +195,6 @@ class CarFragmentModels : Fragment() {
                 }
 
                 setupAdapter()
-                //listaCarros.visibility = View.VISIBLE
-                //pbLoading.visibility = View.INVISIBLE
-                //pbLoading.visibility = View.GONE
 
             }catch (ex: Exception){
                 Log.e("erro", ex.message.toString())
@@ -194,6 +204,14 @@ class CarFragmentModels : Fragment() {
         }
 
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        checkForInternet(context)
+        connectionReturn()
+        Log.d("INTERNET", checkForInternet(context).toString())
+        runTask()
     }
 
 }
