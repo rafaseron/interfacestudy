@@ -133,8 +133,8 @@ class CarFragmentModels : Fragment() {
                     publishProgress(response)
                     listaCarros.visibility = View.VISIBLE
                     pbLoading.visibility = View.INVISIBLE
-                    imgNoConnection.visibility = View.INVISIBLE
-                    txtNoConnection.visibility = View.INVISIBLE
+                    imgNoConnection.visibility = View.GONE
+                    txtNoConnection.visibility = View.GONE
                 }else{
                     Log.e("Erro", "Servico retornou codigo $responseCode")
                 }
