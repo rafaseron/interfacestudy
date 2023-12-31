@@ -53,10 +53,7 @@ class CarFragmentModels : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupView()
         setupListeners()
-        checkForInternet(context)
-        connectionReturn()
         Log.d("INTERNET", checkForInternet(context).toString())
-        runTask()
     }
 
     fun setupView(){
@@ -77,7 +74,7 @@ class CarFragmentModels : Fragment() {
 
     fun runTask(){
         //pbLoading.visibility = View.VISIBLE
-        //carrosArray.clear()
+        carrosArray.clear()
         MyTask().execute("https://rafaseron.github.io/cars-api/car.json")
     }
 
@@ -119,6 +116,7 @@ class CarFragmentModels : Fragment() {
 
     fun connectionReturn (){
         if (checkForInternet(context) == true){
+            runTask()
             imgNoConnection.visibility = View.GONE
             txtNoConnection.visibility = View.GONE
             listaCarros.visibility = View.VISIBLE
@@ -207,12 +205,10 @@ class CarFragmentModels : Fragment() {
 
     }
 
-    /*override fun onResume() {
+    override fun onResume() {
         super.onResume()
         checkForInternet(context)
         connectionReturn()
-        Log.d("INTERNET", checkForInternet(context).toString())
-        runTask()
-    }*/
+    }
 
 }
