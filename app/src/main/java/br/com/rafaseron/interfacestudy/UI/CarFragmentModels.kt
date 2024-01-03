@@ -209,6 +209,6 @@ class CarFragmentModels : Fragment() {
         super.onResume()
         checkForInternet(context)
         connectionReturn()
-    }
+    }//
 
 }
