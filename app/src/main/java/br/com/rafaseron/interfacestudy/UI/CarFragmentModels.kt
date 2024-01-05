@@ -16,6 +16,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,11 +24,17 @@ import androidx.recyclerview.widget.RecyclerView.Recycler
 import br.com.rafaseron.interfacestudy.R
 import br.com.rafaseron.interfacestudy.adapter.CarAdapter
 import br.com.rafaseron.interfacestudy.data.CarFactory
+import br.com.rafaseron.interfacestudy.data.CarsAPI
 import br.com.rafaseron.interfacestudy.domain.Carro
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.json.JSONArray
 import org.json.JSONObject
 import org.json.JSONTokener
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.io.BufferedReader
 import java.io.InputStream
 import java.io.InputStreamReader
@@ -42,7 +49,8 @@ class CarFragmentModels : Fragment() {
     lateinit var pbLoading: ProgressBar
     lateinit var imgNoConnection: ImageView
     lateinit var txtNoConnection: TextView
-    var carrosArray: ArrayList<Carro> = ArrayList()
+    lateinit var carsAPI: CarsAPI
+    //var carrosArray: ArrayList<Carro> = ArrayList()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         //return super.onCreateView(inflater, container, savedInstanceState)
@@ -53,6 +61,7 @@ class CarFragmentModels : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupView()
         setupListeners()
+        setupRetrofit()
         Log.d("INTERNET", checkForInternet(context).toString())
     }
 
@@ -60,6 +69,40 @@ class CarFragmentModels : Fragment() {
         super.onResume()
         checkForInternet(context)
         connectionReturn()
+        //setupRetrofit() -> foi atribuido no onViewCreated -> nao precisa no onResume pois ele faz apenas as atribuicoes, nao as chamadas
+        //getAllCars() -> sendo rodado no connectionReturn() -> faz chamada sempre que troca de Fragment A -> B ou B -> A
+    }
+
+    fun setupRetrofit(){
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://rafaseron.github.io/cars-api/")
+            .addConverterFactory(GsonConverterFactory.create() )
+            .build()
+
+        carsAPI = retrofit.create(CarsAPI::class.java)
+    }
+
+    fun getAllCars(){
+        carsAPI.getAllCars().enqueue(object: Callback<List<Carro>>{
+            override fun onResponse(call: Call<List<Carro>>, response: Response<List<Carro>>) {
+                if (response.isSuccessful){
+                    imgNoConnection.visibility = View.GONE
+                    txtNoConnection.visibility = View.GONE
+                    listaCarros.visibility = View.VISIBLE
+                    pbLoading.visibility = View.INVISIBLE
+                    response.body()?.let {
+                        setupAdapter(it)
+                    }
+                }else{
+                    Toast.makeText(context, R.string.responseError, Toast.LENGTH_LONG).show()
+                }
+            }
+
+            override fun onFailure(call: Call<List<Carro>>, t: Throwable) {
+                Toast.makeText(context, R.string.responseError, Toast.LENGTH_LONG).show()
+            }
+
+        })
     }
 
     fun setupView(){
@@ -78,18 +121,12 @@ class CarFragmentModels : Fragment() {
         }
     }
 
-    fun runTask(){
-        //pbLoading.visibility = View.VISIBLE
-        carrosArray.clear()
-        MyTask().execute("https://rafaseron.github.io/cars-api/car.json")
-    }
 
-
-    fun setupAdapter(){
+    fun setupAdapter(lista: List<Carro>){
         /* CarAdapter */
         //val dados = CarFactory().list
 
-        val adaptador = CarAdapter(carrosArray)
+        val adaptador = CarAdapter(lista)
 
         listaCarros.adapter = adaptador
         listaCarros.layoutManager = LinearLayoutManager(requireContext()) //tem como definir o layoutmanager aqui e no .xml também (app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager")
@@ -122,7 +159,8 @@ class CarFragmentModels : Fragment() {
 
     fun connectionReturn (){
         if (checkForInternet(context) == true){
-            runTask()
+            //runTask()
+            getAllCars()
             imgNoConnection.visibility = View.GONE
             txtNoConnection.visibility = View.GONE
             listaCarros.visibility = View.VISIBLE
@@ -135,7 +173,13 @@ class CarFragmentModels : Fragment() {
         }
     }
 
-    inner class MyTask: AsyncTask<String, String, String>() {
+    /*fun runTask(){
+        //pbLoading.visibility = View.VISIBLE
+        carrosArray.clear()
+        MyTask().execute("https://rafaseron.github.io/cars-api/car.json")
+    }*/
+
+    /*inner class MyTask: AsyncTask<String, String, String>() {
         override fun doInBackground(vararg url: String?): String {
             var urlConnection: HttpURLConnection? = null
             try {
@@ -199,8 +243,6 @@ class CarFragmentModels : Fragment() {
 
                 }
 
-                setupAdapter()
-
             }catch (ex: Exception){
                 Log.e("erro", ex.message.toString())
 
@@ -209,6 +251,6 @@ class CarFragmentModels : Fragment() {
         }
 
 
-    }
+    }*/
 
 }

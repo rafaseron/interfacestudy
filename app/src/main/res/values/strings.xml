@@ -23,5 +23,6 @@
         <item> Dourados </item>
         <item> Araraquara </item>
     </string-array>
+    <string name="responseError">Ops! parece que estamos com problemas para nos conectarmos a você</string>
 
 </resources>
