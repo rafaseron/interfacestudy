@@ -56,6 +56,12 @@ class CarFragmentModels : Fragment() {
         Log.d("INTERNET", checkForInternet(context).toString())
     }
 
+    override fun onResume() {
+        super.onResume()
+        checkForInternet(context)
+        connectionReturn()
+    }
+
     fun setupView(){
         pbLoading = requireView().findViewById<ProgressBar>(R.id.pbLoading)
         imgNoConnection = requireView().findViewById<ImageView>(R.id.imgNoConnection)
@@ -203,12 +209,6 @@ class CarFragmentModels : Fragment() {
         }
 
 
-    }
-
-    override fun onResume() {
-        super.onResume()
-        checkForInternet(context)
-        connectionReturn()
     }
 
 }
