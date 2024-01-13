@@ -1,5 +1,6 @@
 package br.com.rafaseron.interfacestudy.UI
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -32,6 +33,14 @@ class CalcularAutonomiaActivity : AppCompatActivity() {
         }
         setupViews()
 
+        fun saveSharedPreferences(resultado: Float){
+            val sharedPref = getPreferences(Context.MODE_PRIVATE) ?: return
+            with(sharedPref.edit()){
+                putFloat(getString(R.string.saved_calc), resultado)
+                apply()
+            }
+        }
+
         //colocar um listener no botao pra fazer o calculo
         fun setupListeners(){
             btnCalculate.setOnClickListener{
@@ -39,6 +48,7 @@ class CalcularAutonomiaActivity : AppCompatActivity() {
                 val price = edtKHWPrice.text.toString().toFloat()
                 val km = edtKMPercorrido.text.toString().toFloat()
                 val custoPorKM = price/km
+                saveSharedPreferences(custoPorKM)
 
 
                 Log.d("BOTAO CALCULATE","texto capturado (Preço) -> ${edtKHWPrice.text.toString()}")

@@ -24,5 +24,6 @@
         <item> Araraquara </item>
     </string-array>
     <string name="responseError">Ops! parece que estamos com problemas para nos conectarmos a você</string>
+    <string name="saved_calc">saved_calc</string>
 
 </resources>
