@@ -40,7 +40,9 @@
                 android:layout_marginTop="10dp"
                 app:layout_constraintLeft_toRightOf="@+id/model_y"
                 app:layout_constraintTop_toTopOf="@+id/model_y"
-                android:src="@drawable/baseline_favorite_border_48"/>
+                android:src="@drawable/baseline_favorite_border_48"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                />
 
             <ImageView
                 android:id="@+id/imgFavorited"
@@ -50,6 +52,7 @@
                 app:layout_constraintLeft_toRightOf="@+id/model_y"
                 app:layout_constraintTop_toTopOf="@+id/model_y"
                 android:src="@drawable/baseline_favorite_48"
+                android:background="?attr/selectableItemBackgroundBorderless"
                 android:visibility="invisible"
                 />
 
