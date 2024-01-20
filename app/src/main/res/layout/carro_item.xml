@@ -6,11 +6,13 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cvCarro1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
         app:cardBackgroundColor="@color/gray"
         app:cardCornerRadius="24dp"
         android:elevation="24dp"
@@ -30,6 +32,26 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imgFavoriteBorder"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintLeft_toRightOf="@+id/model_y"
+                app:layout_constraintTop_toTopOf="@+id/model_y"
+                android:src="@drawable/baseline_favorite_border_48"/>
+
+            <ImageView
+                android:id="@+id/imgFavorited"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintLeft_toRightOf="@+id/model_y"
+                app:layout_constraintTop_toTopOf="@+id/model_y"
+                android:src="@drawable/baseline_favorite_48"
+                android:visibility="invisible"
+                />
 
             <TextView
                 android:id="@+id/txtPrice"
