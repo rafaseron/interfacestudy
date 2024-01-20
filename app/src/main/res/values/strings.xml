@@ -25,5 +25,7 @@
     </string-array>
     <string name="responseError">Ops! parece que estamos com problemas para nos conectarmos a você</string>
     <string name="saved_calc">saved_calc</string>
+    <string name="unfavorited">Clique para favoritar o item</string>
+    <string name="favorited">Clique para desfavoritar o item</string>
 
 </resources>

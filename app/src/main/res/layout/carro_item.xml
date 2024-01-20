@@ -42,7 +42,9 @@
                 app:layout_constraintTop_toTopOf="@+id/model_y"
                 android:src="@drawable/baseline_favorite_border_48"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                />
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="@string/unfavorited" />
 
             <ImageView
                 android:id="@+id/imgFavorited"
@@ -53,8 +55,10 @@
                 app:layout_constraintTop_toTopOf="@+id/model_y"
                 android:src="@drawable/baseline_favorite_48"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:visibility="invisible"
-                />
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="@string/favorited"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/txtPrice"
