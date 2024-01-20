@@ -21,6 +21,12 @@ class CalcularAutonomiaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calcular_autonomia)
+        setupViews()
+        setupListeners()
+        getSharedPreferences()
+    }
+
+
 
         //ligacao entre view e variaveis
         fun setupViews (){
@@ -31,7 +37,6 @@ class CalcularAutonomiaActivity : AppCompatActivity() {
             imgClose = findViewById(R.id.imgClose)
 
         }
-        setupViews()
 
         fun saveSharedPreferences(resultado: Float){
             val sharedPref = getPreferences(Context.MODE_PRIVATE) ?: return
@@ -39,6 +44,14 @@ class CalcularAutonomiaActivity : AppCompatActivity() {
                 putFloat(getString(R.string.saved_calc), resultado)
                 apply()
             }
+        }
+
+        fun getSharedPreferences(): Float{
+            val sharedPref = getPreferences(Context.MODE_PRIVATE)
+            //return sharedPref.getFloat(getString(R.string.saved_calc), 0.0F)
+            val resultado = sharedPref.getFloat(getString(R.string.saved_calc), 0.0F)
+            txtResult.text = resultado.toString()
+            return resultado
         }
 
         //colocar um listener no botao pra fazer o calculo
@@ -62,7 +75,4 @@ class CalcularAutonomiaActivity : AppCompatActivity() {
             }
 
         }
-        setupListeners()
-    }
-
 }

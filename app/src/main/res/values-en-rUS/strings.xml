@@ -19,4 +19,5 @@
     <string name="cb_compromisso2"> Commitment 2 </string>
     <string name="fechar">Close</string>
     <string name="text_noConnection">Oh no! we are offline right now D:</string>
+    <string name="saved_calc">saved_calc</string>
 </resources>
