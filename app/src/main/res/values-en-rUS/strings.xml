@@ -22,4 +22,5 @@
     <string name="saved_calc">saved_calc</string>
     <string name="unfavorited">Click to favorite this item</string>
     <string name="favorited">Click to unfavorite this item</string>
+    <string name="model_y">Model Y Car</string>
 </resources>
