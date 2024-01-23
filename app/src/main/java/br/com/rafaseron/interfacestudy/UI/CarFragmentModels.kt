@@ -131,6 +131,10 @@ class CarFragmentModels : Fragment() {
         listaCarros.adapter = adaptador
         listaCarros.layoutManager = LinearLayoutManager(requireContext()) //tem como definir o layoutmanager aqui e no .xml também (app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager")
 
+        adaptador.carItemListener = {
+            carro ->
+            val id = carro.id
+        }
     }
 
     fun checkForInternet(contexto: Context?): Boolean{

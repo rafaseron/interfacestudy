@@ -3,6 +3,7 @@ package br.com.rafaseron.interfacestudy.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.rafaseron.interfacestudy.R
@@ -10,17 +11,21 @@ import br.com.rafaseron.interfacestudy.domain.Carro
 
 class CarAdapter (private val listaCarros : List<Carro>) : RecyclerView.Adapter<CarAdapter.CarViewHolder>() {
 
+    var carItemListener: (Carro) -> Unit = {}
+
     //criando um ViewHolder
     class CarViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         val textoPrice : TextView
         val textoBateria : TextView
         val textoPotencia : TextView
         val textoRecarga : TextView
+        val imgFavorite : ImageView
         init {
             textoPrice = itemView.findViewById(R.id.txtNumberPrice)
             textoBateria = itemView.findViewById(R.id.txtNumberBattery)
             textoPotencia = itemView.findViewById(R.id.txtNumberPower)
             textoRecarga = itemView.findViewById(R.id.txtNumberCharge)
+            imgFavorite = itemView.findViewById(R.id.imgFavorite)
         }
     }
 
@@ -46,6 +51,24 @@ class CarAdapter (private val listaCarros : List<Carro>) : RecyclerView.Adapter<
         objetoHolder.textoBateria.text = listaCarros[position].bateria
         objetoHolder.textoPotencia.text = listaCarros[position].potencia
         objetoHolder.textoRecarga.text = listaCarros[position].recarga
+
+        objetoHolder.imgFavorite.tag = (R.drawable.baseline_favorite_border_48)
+        objetoHolder.imgFavorite.setOnClickListener(){
+
+            carItemListener(listaCarros[position])
+            mudarImagem(objetoHolder)
+
+        }
+    }
+
+    private fun mudarImagem(objetoHolder: CarViewHolder) {
+        if (objetoHolder.imgFavorite.tag == R.drawable.baseline_favorite_border_48) {
+            objetoHolder.imgFavorite.setImageResource(R.drawable.baseline_favorite_48)
+            objetoHolder.imgFavorite.tag = R.drawable.baseline_favorite_48
+        } else {
+            objetoHolder.imgFavorite.tag = R.drawable.baseline_favorite_border_48
+            objetoHolder.imgFavorite.setImageResource(R.drawable.baseline_favorite_border_48)
+        }
     }
 
     //numero total de itens do conjunto de dados
