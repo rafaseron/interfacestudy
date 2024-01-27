@@ -4,6 +4,9 @@ import android.provider.BaseColumns
 
 object StoredCarsInterface {
 
+    const val DATABASE_NAME = "db_car"
+    const val DATABASE_VERSION = 1
+
     object StoredCarData: BaseColumns{
         const val TABLE_NAME = "car"
         const val COLUMN_NAME_PRECO = "preco"
