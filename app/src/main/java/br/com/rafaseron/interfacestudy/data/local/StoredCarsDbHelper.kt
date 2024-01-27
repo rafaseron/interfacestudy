@@ -21,5 +21,12 @@ class StoredCarsDbHelper (context: Context): SQLiteOpenHelper(context, StoredCar
         //também há como implementar uma logica de migracao de dados mais complexa, a fim de PRESERVAR os dados existentes durante um upgrade
     }
 
+    override fun onDowngrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+        db?.let{
+            it.execSQL(StoredCarsInterface.SQL_DELETE_STOREDCARTABLE_QUERY) //deleta a tabela existente
+            onCreate(db) //cria a tabela novamente
+        }
+    }
+
 
 }
