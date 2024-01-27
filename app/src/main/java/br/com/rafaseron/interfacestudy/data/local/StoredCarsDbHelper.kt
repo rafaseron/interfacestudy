@@ -7,7 +7,7 @@ import br.com.rafaseron.interfacestudy.data.local.StoredCarsInterface
 
 class StoredCarsDbHelper (context: Context): SQLiteOpenHelper(context, StoredCarsInterface.DATABASE_NAME, null, StoredCarsInterface.DATABASE_VERSION) {
     override fun onCreate(db: SQLiteDatabase?) { //db é o p0
-        db?.let{
+        db?.let{    //consequencia da modulariazao de codigo: precisamos nos preocupar na possibilidade dos dados serem nulos
             it.execSQL(StoredCarsInterface.SQL_CREATE_STOREDCARTABLE_QUERY)
         }
     }
