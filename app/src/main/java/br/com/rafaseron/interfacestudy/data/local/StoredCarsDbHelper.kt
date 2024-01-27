@@ -14,9 +14,11 @@ class StoredCarsDbHelper (context: Context): SQLiteOpenHelper(context, StoredCar
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) { //oldVersion é o p1 e newVersion é o p2
         db?.let{
-            it.execSQL(StoredCarsInterface.SQL_DELETE_STOREDCARTABLE_QUERY)
+            it.execSQL(StoredCarsInterface.SQL_DELETE_STOREDCARTABLE_QUERY) //antes da alteracao (upgrade) é deletado
             onCreate(db)
         }
+        //basicamente no upgrade temos o processo de DELETAR e depois CRIAR novamente, para assim também, alterar da oldVersion para a newVersion
+        //também há como implementar uma logica de migracao de dados mais complexa, a fim de PRESERVAR os dados existentes durante um upgrade
     }
 
 
