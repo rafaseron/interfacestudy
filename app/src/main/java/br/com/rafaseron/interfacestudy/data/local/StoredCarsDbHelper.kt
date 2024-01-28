@@ -1,9 +1,12 @@
 package br.com.rafaseron.interfacestudy.data.local
 
+import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import br.com.rafaseron.interfacestudy.data.local.StoredCarsInterface
+import br.com.rafaseron.interfacestudy.domain.Carro
 
 class StoredCarsDbHelper (context: Context): SQLiteOpenHelper(context, StoredCarsInterface.DATABASE_NAME, null, StoredCarsInterface.DATABASE_VERSION) {
     override fun onCreate(db: SQLiteDatabase?) { //db é o p0
@@ -26,6 +29,47 @@ class StoredCarsDbHelper (context: Context): SQLiteOpenHelper(context, StoredCar
             it.execSQL(StoredCarsInterface.SQL_DELETE_STOREDCARTABLE_QUERY) //deleta a tabela existente
             onCreate(db) //cria a tabela novamente
         }
+    }
+
+    fun insertCar (carro: Carro){
+        val db = this.writableDatabase
+        val values = ContentValues().apply {
+            put(StoredCarsInterface.StoredCarData.COLUMN_NAME_PRECO, carro.preco)
+            put(StoredCarsInterface.StoredCarData.COLUMN_NAME_BATERIA, carro.bateria)
+            put(StoredCarsInterface.StoredCarData.COLUMN_NAME_POTENCIA, carro.potencia)
+            put(StoredCarsInterface.StoredCarData.COLUMN_NAME_RECARGA, carro.recarga)
+            put(StoredCarsInterface.StoredCarData.COLUMN_NAME_URL_PHOTO, carro.urlPhoto)
+        }
+        db.insert(StoredCarsInterface.StoredCarData.TABLE_NAME, null, values)
+    }
+
+    fun getAllFavoritedCars(): List<Carro>{
+        val db = this.readableDatabase
+        val cursor = db.query(StoredCarsInterface.StoredCarData.TABLE_NAME,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+            )
+
+        val favoritedCars = mutableListOf<Carro>()
+        with(cursor){
+            while (moveToNext()){
+                val objectCarro = Carro(
+                    getInt(getColumnIndexOrThrow(StoredCarsInterface.StoredCarData.COLUMN_NAME_ID)),
+                    getString(getColumnIndexOrThrow(StoredCarsInterface.StoredCarData.COLUMN_NAME_PRECO)),
+                    getString(getColumnIndexOrThrow(StoredCarsInterface.StoredCarData.COLUMN_NAME_BATERIA)),
+                    getString(getColumnIndexOrThrow(StoredCarsInterface.StoredCarData.COLUMN_NAME_POTENCIA)),
+                    getString(getColumnIndexOrThrow(StoredCarsInterface.StoredCarData.COLUMN_NAME_RECARGA)),
+                    getString(getColumnIndexOrThrow(StoredCarsInterface.StoredCarData.COLUMN_NAME_URL_PHOTO))
+                )
+                favoritedCars.add(objectCarro)
+            }
+        }
+        cursor.close()
+        return favoritedCars
     }
 
 
