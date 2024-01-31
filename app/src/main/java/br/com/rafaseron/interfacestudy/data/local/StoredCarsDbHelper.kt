@@ -39,7 +39,7 @@ class StoredCarsDbHelper (context: Context): SQLiteOpenHelper(context, StoredCar
             put(StoredCarsInterface.StoredCarData.COLUMN_NAME_RECARGA, carro.recarga)
             put(StoredCarsInterface.StoredCarData.COLUMN_NAME_URL_PHOTO, carro.urlPhoto)
         }
-        // val newRegister = db.insert(StoredCarsInterface.StoredCarData.TABLE_NAME, null, values) //so pra commitar
+        // val newRegister = db.insert(StoredCarsInterface.StoredCarData.TABLE_NAME, null, values)
         db.insert(StoredCarsInterface.StoredCarData.TABLE_NAME, null, values)
     }
 
