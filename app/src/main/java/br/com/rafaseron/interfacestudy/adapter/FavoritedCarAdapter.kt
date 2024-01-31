@@ -10,7 +10,7 @@ import br.com.rafaseron.interfacestudy.R
 import br.com.rafaseron.interfacestudy.data.local.StoredCarsDbHelper
 import br.com.rafaseron.interfacestudy.domain.Carro
 
-class CarAdapter (private val listaCarros : List<Carro>) : RecyclerView.Adapter<CarAdapter.CarViewHolder>() {
+class FavoritedCarAdapter (private val listaCarros : List<Carro>, private val dbHelper: StoredCarsDbHelper) : RecyclerView.Adapter<FavoritedCarAdapter.CarViewHolder>() {
 
     var carItemListener: (Carro) -> Unit = {}
 
@@ -58,6 +58,7 @@ class CarAdapter (private val listaCarros : List<Carro>) : RecyclerView.Adapter<
 
             carItemListener(listaCarros[position])
             mudarImagem(objetoHolder)
+            dbHelper.insertCar(listaCarros[position])
 
         }
     }

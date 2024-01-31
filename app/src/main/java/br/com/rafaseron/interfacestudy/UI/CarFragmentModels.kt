@@ -25,6 +25,7 @@ import br.com.rafaseron.interfacestudy.R
 import br.com.rafaseron.interfacestudy.adapter.CarAdapter
 import br.com.rafaseron.interfacestudy.data.CarFactory
 import br.com.rafaseron.interfacestudy.data.CarsAPI
+import br.com.rafaseron.interfacestudy.data.local.StoredCarsDbHelper
 import br.com.rafaseron.interfacestudy.domain.Carro
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.json.JSONArray
