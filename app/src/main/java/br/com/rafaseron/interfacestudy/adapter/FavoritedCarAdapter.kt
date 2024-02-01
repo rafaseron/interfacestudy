@@ -7,10 +7,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.rafaseron.interfacestudy.R
-import br.com.rafaseron.interfacestudy.data.local.StoredCarsDbHelper
+import br.com.rafaseron.interfacestudy.data.local.StoredCarDbHelper
 import br.com.rafaseron.interfacestudy.domain.Carro
 
-class FavoritedCarAdapter (private val listaCarros : List<Carro>, private val dbHelper: StoredCarsDbHelper) : RecyclerView.Adapter<FavoritedCarAdapter.CarViewHolder>() {
+class FavoritedCarAdapter (private val listaCarros : List<Carro>, private val dbHelper: StoredCarDbHelper) : RecyclerView.Adapter<FavoritedCarAdapter.CarViewHolder>() {
 
     var carItemListener: (Carro) -> Unit = {}
 

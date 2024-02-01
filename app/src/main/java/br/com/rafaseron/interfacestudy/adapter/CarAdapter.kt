@@ -7,7 +7,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.rafaseron.interfacestudy.R
-import br.com.rafaseron.interfacestudy.data.local.StoredCarsDbHelper
 import br.com.rafaseron.interfacestudy.domain.Carro
 
 class CarAdapter (private val listaCarros : List<Carro>) : RecyclerView.Adapter<CarAdapter.CarViewHolder>() {

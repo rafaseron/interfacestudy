@@ -2,7 +2,7 @@ package br.com.rafaseron.interfacestudy.data.local
 
 import android.provider.BaseColumns
 
-object StoredCarsInterface {
+object StoredCarInterface {
 
     const val DATABASE_NAME = "dbCar.db"
     const val DATABASE_VERSION = 1
