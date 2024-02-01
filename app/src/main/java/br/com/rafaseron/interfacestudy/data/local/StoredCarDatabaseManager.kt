@@ -13,6 +13,7 @@ class StoredCarDatabaseManager {
             val dbHelper = StoredCarDbHelper(contexto)
             val db = dbHelper.writableDatabase
             val values = ContentValues().apply {
+                put(StoredCarInterface.StoredCarData.COLUMN_NAME_ID, carro.id)
                 put(StoredCarInterface.StoredCarData.COLUMN_NAME_PRECO, carro.preco)
                 put(StoredCarInterface.StoredCarData.COLUMN_NAME_BATERIA, carro.bateria)
                 put(StoredCarInterface.StoredCarData.COLUMN_NAME_POTENCIA, carro.potencia)

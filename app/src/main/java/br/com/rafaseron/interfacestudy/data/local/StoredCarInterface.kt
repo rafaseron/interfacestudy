@@ -17,7 +17,7 @@ object StoredCarInterface {
         const val COLUMN_NAME_URL_PHOTO = "url_photo"
     }
 
-    const val SQL_CREATE_STOREDCARTABLE_QUERY = "CREATE_TABLE ${StoredCarData.TABLE_NAME} (" +
+    const val SQL_CREATE_STOREDCARTABLE_QUERY = "CREATE TABLE ${StoredCarData.TABLE_NAME} (" +
             "${BaseColumns._ID} INTEGER PRIMARY KEY," +
             "${StoredCarData.COLUMN_NAME_ID} TEXT," +
             "${StoredCarData.COLUMN_NAME_PRECO} TEXT," +
