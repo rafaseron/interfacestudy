@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.rafaseron.interfacestudy.R
 import br.com.rafaseron.interfacestudy.adapter.CarAdapter
 import br.com.rafaseron.interfacestudy.data.CarsAPI
+import br.com.rafaseron.interfacestudy.data.local.StoredCarDatabaseManager
 import br.com.rafaseron.interfacestudy.domain.Carro
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import retrofit2.Call
@@ -119,7 +120,8 @@ class CarFragmentModels : Fragment() {
 
         adaptador.carItemListener = {
             carro ->
-            val id = carro.id
+            //val id = carro.id
+            StoredCarDatabaseManager().insertCar(requireContext(), carro)
         }
     }
 
