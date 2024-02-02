@@ -8,7 +8,7 @@ import br.com.rafaseron.interfacestudy.domain.Carro
 
 class StoredCarDatabaseManager {
 
-    fun insertCar (contexto: Context, carro: Carro){
+    fun insertCar (contexto: Context, carro: Carro){    //funcao para inserir um carro no banco de dados
 
         try {
             val dbHelper = StoredCarDbHelper(contexto)
@@ -32,7 +32,7 @@ class StoredCarDatabaseManager {
     }
 
 
-    fun searchId(contexto: Context, id: Int){
+    fun searchId(contexto: Context, id: Int){   //funcao para buscar um carro no banco de dados - ou ver se o carro existe/ja foi inserido
         val dbHelper = StoredCarDbHelper(contexto)
         val db = dbHelper.readableDatabase
 
