@@ -50,9 +50,9 @@ class StoredCarDatabaseManager {
 
         val cursor = db.query(
             StoredCarInterface.StoredCarData.TABLE_NAME, //nome da tabela
-            columnData,
-            filterColumnData,
-            idToString,
+            columnData, //colunas que queremos
+            filterColumnData, //colunas que queremos filtrar
+            idToString, //valores que queremos filtrar
             null,
             null,
             null,)
