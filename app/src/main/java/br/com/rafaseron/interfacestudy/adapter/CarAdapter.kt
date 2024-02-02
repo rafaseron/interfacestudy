@@ -1,5 +1,6 @@
 package br.com.rafaseron.interfacestudy.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,9 +8,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.rafaseron.interfacestudy.R
+import br.com.rafaseron.interfacestudy.data.local.StoredCarDatabaseManager
 import br.com.rafaseron.interfacestudy.domain.Carro
 
-class CarAdapter (private val listaCarros : List<Carro>) : RecyclerView.Adapter<CarAdapter.CarViewHolder>() {
+class CarAdapter (private val listaCarros : List<Carro>, private val contexto: Context) : RecyclerView.Adapter<CarAdapter.CarViewHolder>() {
 
     var carItemListener: (Carro) -> Unit = {}
 
@@ -56,18 +58,20 @@ class CarAdapter (private val listaCarros : List<Carro>) : RecyclerView.Adapter<
         objetoHolder.imgFavorite.setOnClickListener(){
 
             carItemListener(listaCarros[position])
-            mudarImagem(objetoHolder)
+            mudarImagem(objetoHolder, position)
 
         }
     }
 
-    private fun mudarImagem(objetoHolder: CarViewHolder) {
+    private fun mudarImagem(objetoHolder: CarViewHolder, position: Int) {
+
         if (objetoHolder.imgFavorite.tag == R.drawable.baseline_favorite_border_48) {
             objetoHolder.imgFavorite.setImageResource(R.drawable.baseline_favorite_48)
             objetoHolder.imgFavorite.tag = R.drawable.baseline_favorite_48
         } else {
             objetoHolder.imgFavorite.tag = R.drawable.baseline_favorite_border_48
             objetoHolder.imgFavorite.setImageResource(R.drawable.baseline_favorite_border_48)
+            StoredCarDatabaseManager().deleteCar(contexto, listaCarros[position].id)
         }
     }
 

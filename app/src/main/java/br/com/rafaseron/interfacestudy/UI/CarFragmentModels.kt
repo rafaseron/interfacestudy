@@ -114,7 +114,7 @@ class CarFragmentModels : Fragment() {
         /* CarAdapter */
         //val dados = CarFactory().list
 
-        val adaptador = CarAdapter(lista)
+        val adaptador = CarAdapter(lista, requireContext())
 
         listaCarros.adapter = adaptador
         listaCarros.layoutManager = LinearLayoutManager(requireContext()) //tem como definir o layoutmanager aqui e no .xml também (app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager")

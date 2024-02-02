@@ -133,6 +133,7 @@ class StoredCarDatabaseManager {
         val filterColumnData = "${StoredCarInterface.StoredCarData.COLUMN_NAME_ID} = ?"
         val idToString = arrayOf(id.toString())
         db.delete(StoredCarInterface.StoredCarData.TABLE_NAME, filterColumnData, idToString)
+        Log.e("deleteCar", "ID ${id.toString()} deletado com sucesso")
     }
 
 }
