@@ -121,7 +121,9 @@ class CarFragmentModels : Fragment() {
         adaptador.carItemListener = {
             carro ->
             //val id = carro.id
-            StoredCarDatabaseManager().insertCar(requireContext(), carro)
+            val contexto = requireContext()
+            StoredCarDatabaseManager().insertCar(contexto, carro)
+            StoredCarDatabaseManager().searchId(contexto, carro.id)
         }
     }
 
