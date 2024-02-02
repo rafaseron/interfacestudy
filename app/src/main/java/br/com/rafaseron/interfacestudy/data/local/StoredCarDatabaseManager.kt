@@ -32,7 +32,7 @@ class StoredCarDatabaseManager {
     }
 
 
-    fun searchId(contexto: Context, id: Int){   //funcao para buscar um carro no banco de dados - ou ver se o carro existe/ja foi inserido
+    fun searchId(contexto: Context, id: Int) : Carro{   //funcao para buscar um carro no banco de dados - ou ver se o carro existe/ja foi inserido
         val dbHelper = StoredCarDbHelper(contexto)
         val db = dbHelper.readableDatabase
 
@@ -57,15 +57,42 @@ class StoredCarDatabaseManager {
             null,
             null,)
 
-        val itemCar = mutableListOf<Carro>()
+        var objectCar = Carro(0, "", "", "", "", "")
         with(cursor){
             while (moveToNext()){
                 val itemId = getInt(getColumnIndexOrThrow(StoredCarInterface.StoredCarData.COLUMN_NAME_ID))
-                Log.e("searchid ->", itemId.toString())
+                Log.e("searchid ->", id.toString())
+                val preco = getString(getColumnIndexOrThrow(StoredCarInterface.StoredCarData.COLUMN_NAME_PRECO))
+                Log.e("searchid ->", preco)
+                val bateria = getString(getColumnIndexOrThrow(StoredCarInterface.StoredCarData.COLUMN_NAME_BATERIA))
+                Log.e("searchid ->", bateria)
+                val potencia = getString(getColumnIndexOrThrow(StoredCarInterface.StoredCarData.COLUMN_NAME_POTENCIA))
+                Log.e("searchid ->", potencia)
+                val recarga = getString(getColumnIndexOrThrow(StoredCarInterface.StoredCarData.COLUMN_NAME_RECARGA))
+                Log.e("searchid ->", recarga)
+                val urlPhoto = getString(getColumnIndexOrThrow(StoredCarInterface.StoredCarData.COLUMN_NAME_URL_PHOTO))
+                Log.e("searchid ->", urlPhoto)
+
+                objectCar = Carro(itemId, preco, bateria, potencia, recarga, urlPhoto)
             }
         }
         cursor.close()
+        return objectCar
+    }
 
+    fun insertOnlyIfNotExists(contexto: Context, carro: Carro){
+        val carroExistente = searchId(contexto, carro.id)
+        if (carroExistente.id == 0){
+            insertCar(contexto, carro)
+        }
+    }
+
+    fun deleteCar(contexto: Context, id: Int){
+        val dbHelper = StoredCarDbHelper(contexto)
+        val db = dbHelper.writableDatabase
+        val filterColumnData = "${StoredCarInterface.StoredCarData.COLUMN_NAME_ID} = ?"
+        val idToString = arrayOf(id.toString())
+        db.delete(StoredCarInterface.StoredCarData.TABLE_NAME, filterColumnData, idToString)
     }
 
 }
