@@ -87,7 +87,7 @@ class StoredCarDatabaseManager {
         }
     }
 
-    fun getAllCars(contexto: Context): ArrayList<Carro>{
+    fun getAllSavedData(contexto: Context): ArrayList<Carro>{
         val dbHelper = StoredCarDbHelper(contexto)
         val db = dbHelper.readableDatabase
 
