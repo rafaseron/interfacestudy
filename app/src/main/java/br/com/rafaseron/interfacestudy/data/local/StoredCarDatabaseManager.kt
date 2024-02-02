@@ -87,6 +87,46 @@ class StoredCarDatabaseManager {
         }
     }
 
+    fun getAllCars(contexto: Context): ArrayList<Carro>{
+        val dbHelper = StoredCarDbHelper(contexto)
+        val db = dbHelper.readableDatabase
+
+        val columnData = arrayOf(BaseColumns._ID,
+            StoredCarInterface.StoredCarData.COLUMN_NAME_ID,
+            StoredCarInterface.StoredCarData.COLUMN_NAME_PRECO,
+            StoredCarInterface.StoredCarData.COLUMN_NAME_BATERIA,
+            StoredCarInterface.StoredCarData.COLUMN_NAME_POTENCIA,
+            StoredCarInterface.StoredCarData.COLUMN_NAME_RECARGA,
+            StoredCarInterface.StoredCarData.COLUMN_NAME_URL_PHOTO)
+
+        val cursor = db.query(
+            StoredCarInterface.StoredCarData.TABLE_NAME,
+            columnData,
+            null,
+            null,
+            null,
+            null,
+            null)
+
+        val carrosArray = ArrayList<Carro>()
+        with(cursor){
+            while (moveToNext()){
+                val itemId = getInt(getColumnIndexOrThrow(StoredCarInterface.StoredCarData.COLUMN_NAME_ID))
+                val preco = getString(getColumnIndexOrThrow(StoredCarInterface.StoredCarData.COLUMN_NAME_PRECO))
+                val bateria = getString(getColumnIndexOrThrow(StoredCarInterface.StoredCarData.COLUMN_NAME_BATERIA))
+                val potencia = getString(getColumnIndexOrThrow(StoredCarInterface.StoredCarData.COLUMN_NAME_POTENCIA))
+                val recarga = getString(getColumnIndexOrThrow(StoredCarInterface.StoredCarData.COLUMN_NAME_RECARGA))
+                val urlPhoto = getString(getColumnIndexOrThrow(StoredCarInterface.StoredCarData.COLUMN_NAME_URL_PHOTO))
+
+                val moldeCarro = Carro(itemId, preco, bateria, potencia, recarga, urlPhoto)
+
+                carrosArray.add(moldeCarro)
+            }
+        }
+        cursor.close()
+        return carrosArray
+    }
+
     fun deleteCar(contexto: Context, id: Int){
         val dbHelper = StoredCarDbHelper(contexto)
         val db = dbHelper.writableDatabase
