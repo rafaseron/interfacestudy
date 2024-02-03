@@ -54,6 +54,16 @@ class CarAdapter (private val listaCarros : List<Carro>, private val contexto: C
         objetoHolder.textoPotencia.text = listaCarros[position].potencia
         objetoHolder.textoRecarga.text = listaCarros[position].recarga
 
+        val isStored = StoredCarDatabaseManager().isStored(contexto, listaCarros[position].id)
+        if (isStored){
+            objetoHolder.imgFavorite.setImageResource(R.drawable.baseline_favorite_48)
+            objetoHolder.imgFavorite.tag = (R.drawable.baseline_favorite_48)
+        } else {
+            objetoHolder.imgFavorite.setImageResource(R.drawable.baseline_favorite_border_48)
+            objetoHolder.imgFavorite.tag = (R.drawable.baseline_favorite_border_48)
+        }
+
+
         objetoHolder.imgFavorite.tag = (R.drawable.baseline_favorite_border_48)
         objetoHolder.imgFavorite.setOnClickListener(){
 

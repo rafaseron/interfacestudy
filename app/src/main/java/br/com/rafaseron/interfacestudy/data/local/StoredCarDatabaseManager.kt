@@ -136,4 +136,13 @@ class StoredCarDatabaseManager {
         Log.e("deleteCar", "ID ${id.toString()} deletado com sucesso")
     }
 
+    fun isStored(contexto: Context, id: Int): Boolean{
+        val carro = searchId(contexto, id)
+        if (carro.id == 0){
+            return false
+        }else{
+            return true
+        }
+    }
+
 }
